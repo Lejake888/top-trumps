@@ -58,9 +58,10 @@ button:active {
     font-size: 20px;
 }
 
-.infoBox > .box > #playerOneName, #playerTwoName {
+.infoBox > .box > #playerOneName, #playerTwoName, #fight{
     color:red;
     font-size: 15px;
+    font-family: '8BITWONDERNominal';
 }
 
 .infoBox > .box > button {
@@ -73,5 +74,12 @@ button:active {
 .box {
     background: rgba(255,255,255,0.5);
     width: 45%;
+    height: 520px;
     margin: 3%;
+}
+
+/* Move Log */
+
+.log {
+    overflow: scroll;
 }
