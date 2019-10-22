@@ -58,6 +58,10 @@ button:active {
     font-size: 20px;
 }
 
+.infoBox > .box > #playerOneName, #playerTwoName {
+    color:red;
+    font-size: 15px;
+}
 
 .infoBox > .box > button {
     display: flex;

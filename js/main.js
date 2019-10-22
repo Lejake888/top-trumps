@@ -142,8 +142,10 @@ const rules = () => {
 
 const namingPlayers = () => {
     name1= prompt(`What's your name player 1?`);
+    document.getElementById("playerOneName").innerHTML = name1;
     name2= prompt(`Ok, what's your name player 2?`);
-    
+    document.getElementById("playerTwoName").innerHTML = name2;
+
 }
 
 for (i=0;i<names.length;i++) 
