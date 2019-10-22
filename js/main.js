@@ -1,5 +1,7 @@
 let player1 = [];
 let player2= [];
+let name1;
+let name2;
 let toggler = true;
 let deck = [];
 let limbo = []; 
@@ -131,7 +133,6 @@ const shuffle = (array) =>  {
     return array // returns random array
   }
 
-
 const rules = () => {
     alert(`Player 1 will pick a statistic from their card (1/4)`)
     alert(`Player 2 will compares this number against the same statistic (2/4)`)
@@ -139,30 +140,11 @@ const rules = () => {
     alert(`The first player to get all 30 cards wins the game (4/4)`)
 }
 
-// game starts here
-promt("jel")
-let name1= prompt(`What's your name player 1?`);
-let name2= prompt(`Ok, what's your name player 2?`);
-
-document.getElementById("p1name").innerHTML = name1;
-document.getElementById("p2name").innerHTML = name2;
-
-alert(`Thanks for that, ${name1}, you'll start first and keep going until you lose a round`);
-
-let box = document.getElementById("infoBox")
-let startGame = document.getElementById("playButton")
-
-startGame.addEventListener("click", () => {
-    if (box.style.display === "block") {
-        box.style.display === "block"
-    }
-    else {
-        box.style.display === "block"
-    }
-})
-
-let name1 = document.getElementById("first")
-let name2 = document.getElementById("second")
+const namingPlayers = () => {
+    name1= prompt(`What's your name player 1?`);
+    name2= prompt(`Ok, what's your name player 2?`);
+    
+}
 
 for (i=0;i<names.length;i++) 
     deck.push(new CardGenerator(names[i], attack[i], healthPoint[i], defense[i], speed[i], weight[i], wins[i])); // Each card is made and pushed onto an array

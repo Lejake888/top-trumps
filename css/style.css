@@ -60,8 +60,10 @@ button:active {
 
 
 .infoBox > .box > button {
-    margin: 20px;
     display: flex;
+    margin: 15px;
+    flex-direction: column;
+    align-content: space-around;
 }
 
 .box {

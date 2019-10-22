@@ -9,22 +9,20 @@
     <div id = start>
         <h1>Welcome to Top Trumps!</h1>
         <p>First player to get all 30 cards wins <br> Good luck!</p>
-        <button id = playButton>Play >>></button>  
+        <button onclick = "namingPlayers()">Play >>> </button>
         <button onclick = "rules()">Rules >>></button>  
     </div>
     <div id = main>
     <div class = "infoBox">
             <div class = "box playerOne">
-                <h2 id = p1name>Player 1:</h2>
-                <h2></h2>
+                <h2>Player 1:</h2>
+                <p id = "playerOneName"></p>
                 <button onclick = "valueChoice()">Play >>></button>  
-                <button onclick = "valueChoice()">Look at card >>></button>  
             </div>
             <div class = "box playerTwo">
                 <h2>Player 2:</h2>
-                <h2 id = p2name></h2>
+                <p id = "playerTwoName"></p>
                 <button onclick = "valueChoice()">Play >>></button>  
-                <button onclick = "valueChoice()">Look at card >>></button>  
             </div>
         </div>
         <script src="js/main.js"></script>
