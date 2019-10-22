@@ -139,11 +139,26 @@ const rules = () => {
     alert(`The first player to get all 30 cards wins the game (4/4)`)
 }
 
-alert(`Welcome to Top Trumps!`);
-alert(`First player to get all 30 cards wins, good luck!`);
-let name1= prompt(`What's your name player 1?`);
-let name2= prompt(`Ok, what's your name player 2?`);
-alert(`Thanks for that, ${name1}, you'll start first and keep going until you lose a round`);
+// alert(`Welcome to Top Trumps!`);
+// alert(`First player to get all 30 cards wins, good luck!`);
+// let name1= prompt(`What's your name player 1?`);
+// let name2= prompt(`Ok, what's your name player 2?`);
+// alert(`Thanks for that, ${name1}, you'll start first and keep going until you lose a round`);
+
+let box = document.getElementById("infoBox")
+let startGame = document.getElementById("playButton")
+
+startGame.addEventListener("click", () => {
+    if (box.style.display === "none") {
+        box.style.display === "block"
+    }
+    else {
+        box.style.display === "none"
+    }
+})
+
+let name1 = document.getElementById("first")
+let name2 = document.getElementById("second")
 
 for (i=0;i<names.length;i++) 
     deck.push(new CardGenerator(names[i], attack[i], healthPoint[i], defense[i], speed[i], weight[i], wins[i])); // Each card is made and pushed onto an array
@@ -152,7 +167,6 @@ player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in p
 player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Splits player deck and gives other half to other player (array), now cards in two seperate arrays
 
 toggle()
-let move = valueChoice();
 
 // 2 players (two compare functions? Swap arrays so player carries on?)
 // make counter = 0, if counter > 0 and they lose, they swap, when they lose the round their counter reset to 0
