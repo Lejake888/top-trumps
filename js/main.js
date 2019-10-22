@@ -139,21 +139,25 @@ const rules = () => {
     alert(`The first player to get all 30 cards wins the game (4/4)`)
 }
 
-// alert(`Welcome to Top Trumps!`);
-// alert(`First player to get all 30 cards wins, good luck!`);
-// let name1= prompt(`What's your name player 1?`);
-// let name2= prompt(`Ok, what's your name player 2?`);
-// alert(`Thanks for that, ${name1}, you'll start first and keep going until you lose a round`);
+// game starts here
+promt("jel")
+let name1= prompt(`What's your name player 1?`);
+let name2= prompt(`Ok, what's your name player 2?`);
+
+document.getElementById("p1name").innerHTML = name1;
+document.getElementById("p2name").innerHTML = name2;
+
+alert(`Thanks for that, ${name1}, you'll start first and keep going until you lose a round`);
 
 let box = document.getElementById("infoBox")
 let startGame = document.getElementById("playButton")
 
 startGame.addEventListener("click", () => {
-    if (box.style.display === "none") {
+    if (box.style.display === "block") {
         box.style.display === "block"
     }
     else {
-        box.style.display === "none"
+        box.style.display === "block"
     }
 })
 

@@ -12,11 +12,23 @@
         <button id = playButton>Play >>></button>  
         <button onclick = "rules()">Rules >>></button>  
     </div>
-    <div id = infoBox>
-        <button onclick = "valueChoice()">Play >>></button>  
-        <button onclick = "valueChoice()">Look at card >>></button>  
-    </div>
-    <script src="js/main.js"></script>
+    <div id = main>
+    <div class = "infoBox">
+            <div class = "box playerOne">
+                <h2 id = p1name>Player 1:</h2>
+                <h2></h2>
+                <button onclick = "valueChoice()">Play >>></button>  
+                <button onclick = "valueChoice()">Look at card >>></button>  
+            </div>
+            <div class = "box playerTwo">
+                <h2>Player 2:</h2>
+                <h2 id = p2name></h2>
+                <button onclick = "valueChoice()">Play >>></button>  
+                <button onclick = "valueChoice()">Look at card >>></button>  
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+        </div>
     </div>
 </body>
 </html>

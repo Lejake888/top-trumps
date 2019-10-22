@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
+/* BODY */
+
 body {
     background: url(https://img4.goodfon.com/wallpaper/nbig/1/f8/8bit-8bit-grafika-les-retro-fon-pikseli-pxl.jpg);
     font-family: 'Press Start 2P', cursive;
@@ -9,10 +11,19 @@ body {
     text-align: center;
 }
 
+/* HEADER, MAIN SECTION */
+
 #start > h1{
     color:white;
     font-size: 50px;
 }
+
+#start > p {
+    color: 15px;
+    line-height: 2;
+}
+
+/* BUTTONS */
 
 button {
     outline:none;
@@ -34,13 +45,27 @@ button:active {
     font-size: 14px;
 }
 
-#start > p {
-    color: 15px;
-    line-height: 2;
+/* DISPLAY BOX */
+
+.infoBox {
+    display:flex;
+    min-height: 70vh;
+    flex-direction: row;
 }
 
-#infoBox {
+.infoBox > .box > h2{
+    margin: 20px;
+    font-size: 20px;
+}
+
+
+.infoBox > .box > button {
+    margin: 20px;
+    display: flex;
+}
+
+.box {
     background: rgba(255,255,255,0.5);
-    height: 70vh;
-    display:none;
+    width: 45%;
+    margin: 3%;
 }
