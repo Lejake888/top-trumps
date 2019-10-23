@@ -19,20 +19,22 @@
             <div class = "box playerOne">
                 <h2>Player 1:</h2>
                 <h2 id = "playerOneName"></h2>
-                <button onclick = "valueChoice()">Play >>></button>  
+                <button onclick = "valueChoice()">Play >>></button>
+                <button id = "clearButton" onclick = "seeCards()">See Card >>></button> 
+                <p id="description1"></p>  
             </div>
             <div class = "box log">
                 <h2>Move log:</h2>
                 <h2 id = "fight"></h2>
-                <button onclick = "clear()">Clear >>></button>  
-                <div id = "scrollable">
-                    <p id="description"></p>
-                </div>
+                <button onclick = "clear()">Clear >>></button>
+                <p id="description"></p>
             </div>
             <div class = "box playerTwo">
                 <h2>Player 2:</h2>
                 <h2 id = "playerTwoName"></h2>
-                <button onclick = "valueChoice()">Play >>></button>  
+                <button id = "clearButton" onclick = "valueChoice()">Play >>></button> 
+                <button id = "clearButton" onclick = "seeCards()">See Card >>></button> 
+                <p id="description2"></p> 
             </div>
         </div>
         <script src="js/main.js"></script>

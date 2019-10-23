@@ -82,9 +82,11 @@ button:active {
 
 .log {
     overflow: scroll;
+    background: rgba(170, 170, 170, 0.87);
+
 }
 
-#description {
+#description, #description1, #description2 {
     margin: 20px;
     font-size: 12px;
     line-height: 2;

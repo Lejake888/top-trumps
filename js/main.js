@@ -25,6 +25,26 @@ class CardGenerator {
     }
 }
 
+const clear = () => {
+    let log = document.getElementById("description")
+    log.textContent = " "
+}
+
+const seeCards = () => {
+    document.getElementById("description1").innerHTML = `[Your Card: ${player1[0].name}]<br> 
+    Attack: ${player1[0].attribute1}<br> 
+    Health: ${player1[0].attribute2}<br> 
+    Defense: ${player1[0].attribute3}<br> 
+    Speed: ${player1[0].attribute4}<br> 
+    Weight: ${player1[0].attribute5}<br> `
+    document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
+    Attack: ???<br> 
+    Health: ???<br> 
+    Defense: ???}<br> 
+    Speed: ???<br> 
+    Weight: ???<br> `
+}
+
 const toggle = () => {
     if (!toggler){
         alert(`${name1} lost the round! It's now ${name2}'s turn`) // need to work out name changes
@@ -39,12 +59,7 @@ const toggle = () => {
 }
 
 const valueChoice = () => {
-    alert(`       [Your Card: ${player1[0].name}] 
-    Attack: ${player1[0].attribute1} 
-    Health: ${player1[0].attribute2} 
-    Defense: ${player1[0].attribute3}
-    Speed: ${player1[0].attribute4}
-    Weight: ${player1[0].attribute5}`);
+    setTimeout(5000) // setTimeout(function(){ alert("Hello"); }, 3000);
     let move = parseInt(prompt(`Choose a value to compare: 1: Attack, 2: Health, 3: Defense, 4: Speed 5: Weight [Your Card: ${player1[0].name}]`)); // Checks input is number 
         if (move == 1) {
             compare(player1[0].attribute1, player2[0].attribute1);
@@ -58,7 +73,7 @@ const valueChoice = () => {
         else if (move == 4) {
             compare(player1[0].attribute4, player2[0].attribute4);
         }
-        else if (move== 5) {
+        else if (move == 5) {
             compare(player1[0].attribute5, player2[0].attribute5);
         }
 }
