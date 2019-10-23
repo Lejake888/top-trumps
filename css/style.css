@@ -83,3 +83,9 @@ button:active {
 .log {
     overflow: scroll;
 }
+
+#description {
+    margin: 20px;
+    font-size: 12px;
+    line-height: 2;
+}

@@ -65,18 +65,18 @@ const valueChoice = () => {
 
 const compare = (pla1Card, pla2Card) => {   
     if (pla1Card > pla2Card) { 
-        console.log(`${name1}'s Card: ${player1[0].name} (${pla1Card})`);
-        console.log(`${name2}'s Card: ${player2[0].name} (${pla2Card})`);
-        console.log(`${name1} wins the round`);
+        document.getElementById("description").innerHTML += `${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
+        document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
+        document.getElementById("description").innerHTML +=`${name1} wins the round<br>`
         player1[0].wins ++;
         player1.push(player2[0]);
         player2.shift();
         let top = player1.shift();
         player1.push(top);
-        console.log(`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}`);
-        console.log(`${name1} Cards left: ${player1.length}`);
-        console.log(`${name2} Cards left: ${player2.length}`);
-        console.log(`Middle Cards left: ${limbo.length}`);
+        document.getElementById("description").innerHTML +=`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}<br>`
+        document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
+        document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
+        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         if (limbo.length > 0) {
             limbo.forEach(card => {
                 player1.push(card);
@@ -86,18 +86,18 @@ const compare = (pla1Card, pla2Card) => {
 
     }
     else if (pla1Card < pla2Card) {
-        console.log(`${name1}'s Card: ${player1[0].name} (${pla1Card})`);
-        console.log(`${name2}'s Card: ${player2[0].name} (${pla2Card})`);
-        console.log(`${name2} wins the round`);
+        document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
+        document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
+        document.getElementById("description").innerHTML +=`${name2} wins the round<br>`
         player2[0].wins ++;
         player2.push(player1[0]);
         player1.shift();
         let top = player2.shift();
         player2.push(top);
-        console.log(`${player2[player2.length-1].name} wins: ${player2[player2.length-1].wins}`);
-        console.log(`${name1} Cards left: ${player1.length}`);
-        console.log(`${name2}  Cards left: ${player2.length}`);
-        console.log(`Middle Cards left: ${limbo.length}`);
+        document.getElementById("description").innerHTML +=`${player2[player2.length-1].name} wins: ${player2[player2.length-1].wins}<br>`
+        document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
+        document.getElementById("description").innerHTML +=`${name2}  Cards left: ${player2.length}<br>`
+        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         if (limbo.length > 0) {
             limbo.forEach(card => {
                 player2.push(card);
@@ -109,22 +109,22 @@ const compare = (pla1Card, pla2Card) => {
 
     }
     else if (pla1Card == pla2Card) {
-        console.log(`${name1}'s Card: ${player1[0].name} (${pla1Card})`);
-        console.log(`${name2}'s Card: ${player2[0].name} (${pla2Card})`);
-        console.log("No one wins the round");
+        document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
+        document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
+        document.getElementById("description").innerHTML +="No one wins the round"
         limbo.push(player1[0]);
         limbo.push(player2[0]);
         player2.shift();
         player1.shift();
-        console.log(`${name1} Cards left: ${player1.length}`);
-        console.log(`${name2} Cards left: ${player2.length}`);
-        console.log(`Middle Cards left: ${limbo.length}`);
+        document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
+        document.getElementByIdX("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
+        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
     }
     if (player1.length == 0) {
-        console.log(`${name2} wins the game`);
+        document.getElementById("log").innerHTML +=`${name2} wins the game`
     }
     else if (player2.length == 0) {
-        console.log(`${name1} wins the game`);
+        document.getElementById("log").innerHTML +=`${name1} wins the game`
     }
 }
 
