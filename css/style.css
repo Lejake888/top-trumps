@@ -90,4 +90,5 @@ button:active {
     margin: 20px;
     font-size: 12px;
     line-height: 2;
+    flex-wrap:wrap;
 }

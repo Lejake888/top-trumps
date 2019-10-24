@@ -11,16 +11,18 @@
     <div id = start>
         <h1>Welcome to Top Trumps!</h1>
         <p>First player to get all 30 cards wins <br> Good luck!</p>
-        <button onclick = "namingPlayers()">Play >>> </button>
+        <button onclick = "namingPlayers()">Set Names >>> </button>
         <button onclick = "rules()">Rules >>></button>  
+        <button onclick = "controls()">Controls >>></button>  
+
     </div>
     <div id = main>
     <div class = "infoBox">
             <div class = "box playerOne">
                 <h2>Player 1:</h2>
                 <h2 id = "playerOneName"></h2>
-                <button onclick = "valueChoice()">Play >>></button>
                 <button id = "clearButton" onclick = "seeCards()">See Card >>></button> 
+                <button onclick = "valueChoice()">Play >>></button>
                 <p id="description1"></p>  
             </div>
             <div class = "box log">
@@ -32,8 +34,8 @@
             <div class = "box playerTwo">
                 <h2>Player 2:</h2>
                 <h2 id = "playerTwoName"></h2>
-                <button id = "clearButton" onclick = "valueChoice()">Play >>></button> 
                 <button id = "clearButton" onclick = "seeCards()">See Card >>></button> 
+                <button id = "clearButton" onclick = "valueChoice()">Play >>></button> 
                 <p id="description2"></p> 
             </div>
         </div>

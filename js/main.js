@@ -80,7 +80,7 @@ const valueChoice = () => {
 
 const compare = (pla1Card, pla2Card) => {   
     if (pla1Card > pla2Card) { 
-        document.getElementById("description").innerHTML += `${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
+        document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
         document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
         document.getElementById("description").innerHTML +=`${name1} wins the round<br>`
         player1[0].wins ++;
@@ -149,10 +149,14 @@ const shuffle = (array) =>  {
   }
 
 const rules = () => {
-    alert(`Player 1 will pick a statistic from their card (1/4)`)
-    alert(`Player 2 will compares this number against the same statistic (2/4)`)
-    alert(`Whoever has the highest statistic wins the other person's card (3/4)`)
-    alert(`The first player to get all 30 cards wins the game (4/4)`)
+
+}
+
+const controls = () => {
+    document.getElementById("description").innerHTML += `Controls: <br>Press “Set Names” to set the names of both players<br>`
+    document.getElementById("description").innerHTML += `Press “Rules” to see the rules<br>`
+    document.getElementById("description").innerHTML += `Press “See card” to view your current card<br>` 
+    document.getElementById("description").innerHTML += `Press “Play” to make your move<br> <hr>`
 }
 
 const namingPlayers = () => {
