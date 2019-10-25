@@ -175,6 +175,15 @@ player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Splits player dec
 
 toggle()
 
+// Convert to something like below
+
+// let deck = [
+//     new CardGenerator("Venusaur", 1,2,3,4,5,6),
+//     new CardGenerator("Venusaur", 1,2,3,4,5,6),
+// ]
+
+
+
 // 2 players (two compare functions? Swap arrays so player carries on?)
 // make counter = 0, if counter > 0 and they lose, they swap, when they lose the round their counter reset to 0
 // two different functions, player1turn & player2turn, toggle between functions
