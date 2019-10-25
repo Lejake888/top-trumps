@@ -193,8 +193,39 @@ let deck = [
 let player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in player
 let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Splits player deck and gives other half to other player (array), now cards in two seperate arrays
 
-toggle()
+// Buttons inside of JS
 
-// 2 players (two compare functions? Swap arrays so player carries on?)
-// make counter = 0, if counter > 0 and they lose, they swap, when they lose the round their counter reset to 0
-// two different functions, player1turn & player2turn, toggle between functions
+let namingPlayersButton = document.getElementById("namingPlayers")
+let rulesButton = document.getElementById("rules")
+let controlsButton = document.getElementById("controls")
+let clearButton = document.getElementById("clearButton")
+
+let seeCardsButton = document.getElementsByClassName("seeCards")
+let playButton = document.getElementsByClassName("playCard")
+
+namingPlayersButton.addEventListener("click", () => {
+    namingPlayers()
+});
+
+rulesButton.addEventListener("click", () => {
+    rules()
+});
+
+controlsButton.addEventListener("click", () => {
+    controls()
+});
+
+clearButton.addEventListener("click", () => {
+    clear()
+});
+
+seeCardsButton.addEventListener("click", () => {
+    seeCards()
+});
+
+playButton.addEventListener("click", () => {
+    valueChoice()
+});
+
+
+toggle()
