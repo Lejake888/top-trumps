@@ -1,17 +1,7 @@
-let player1 = [];
-let player2= [];
 let name1;
 let name2;
 let toggler = true;
-let deck = [];
 let limbo = []; 
-let names = ["Venusaur", "Charizard", "Blastoise", "Pikachu", "Sandshrew", "Mareep", "Yanma", "Miltank", "Blissey", "Tyranitar", "Gardevoir", "Breloom", "Aggron", "Flygon", "Milotic", "Luxray", "Vespiquen", "Lopunny", "Spiritomb", "Garchomp", "Musharna", "Zebstrika", "Scolipede", "Archeops", "Hydreigon", "Pyroar", "Gogoat", "Pangoro", "Tyrantrum", "Goodra"];
-let attack = [40, 45, 42, 39, 40, 25, 38, 49, 10, 72, 39, 72, 66, 58, 31, 68, 45, 45, 54, 75, 31, 56, 56, 75, 58, 45, 45, 64, 64, 52];
-let healthPoint = [30, 34, 35, 28, 28, 26, 30, 48, 100, 48, 35, 35, 32, 34, 48, 38, 38, 32, 22, 46, 56, 34, 32, 36, 48, 45, 50, 44, 36, 45];
-let defense = [42, 34, 40, 20, 44, 28, 22, 58, 10, 46, 38, 42, 88, 40, 34, 36, 48, 44, 54, 40, 42, 32, 42, 35, 44, 38, 34, 34, 55, 38];
-let speed = [42, 55, 40, 58, 22, 25, 56, 55, 32, 34, 44, 46, 34, 58, 48, 44, 22, 68, 26, 55, 22, 62, 60, 66, 55, 68, 42, 38, 46, 42];
-let weight = [100, 90.5, 85.5, 6, 12, 7.8, 38, 75.5, 46.8, 202, 48.4, 39.2, 360, 82, 162, 42, 38.5, 33.3, 108, 95, 60.5, 79.5, 200.5, 32, 160, 81.5, 91, 136, 270, 150.5];
-let wins = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 class CardGenerator {
     constructor(n,a,b,c,d,e,w) {
@@ -167,22 +157,43 @@ const namingPlayers = () => {
     document.getElementById("fight").innerHTML = name1 + " vs " + name2;
 }
 
-for (i=0;i<names.length;i++) 
-    deck.push(new CardGenerator(names[i], attack[i], healthPoint[i], defense[i], speed[i], weight[i], wins[i])); // Each card is made and pushed onto an array
+let deck = [
+    new CardGenerator("Venusaur", 40, 30, 42, 42, 100, 0),
+    new CardGenerator("Charizard", 45, 34, 34, 55, 90.5, 0),
+    new CardGenerator("Blastoise", 42, 35, 40, 40, 85.5, 0),
+    new CardGenerator("Pickachu", 39, 28, 20, 58, 6, 0),
+    new CardGenerator("Sandshrew", 40, 28, 44, 22, 12, 0),
+    new CardGenerator("Mareep", 25, 26, 28, 25, 7.8, 0),
+    new CardGenerator("Yanma", 38, 30, 22, 56, 38, 0),
+    new CardGenerator("Miltank", 49, 48, 58, 55, 75.5, 0),
+    new CardGenerator("Blissey", 10, 100, 10, 32, 46.8, 0),
+    new CardGenerator("Tyranitar", 72, 48, 46, 34, 202, 0),
+    new CardGenerator("Gardevoir", 39, 35, 38, 44, 48.4, 0),
+    new CardGenerator("Breloom", 72, 35, 42, 46, 39.2, 0),
+    new CardGenerator("Aggron", 66, 32, 88, 34, 360, 0),
+    new CardGenerator("Flygon", 58, 34, 40, 58, 82, 0),
+    new CardGenerator("Milotic", 31, 48, 34, 48, 162, 0),
+    new CardGenerator("Luxray", 68, 38, 36, 44, 42, 0),
+    new CardGenerator("Vespiquen", 45, 38, 48, 22, 38.5, 0),
+    new CardGenerator("Lopunny", 45, 32, 44, 68, 33.3, 0),
+    new CardGenerator("Spiritomb", 54, 22, 54, 26, 108, 0),
+    new CardGenerator("Garchomp", 75, 46, 40, 55, 95, 0),
+    new CardGenerator("Musharna", 31, 56, 42, 22, 60.5, 0),
+    new CardGenerator("Zebstrika", 56, 34, 32, 62, 79.5, 0),
+    new CardGenerator("Scolipede", 56, 32, 42, 60, 200.5, 0),
+    new CardGenerator("Archeops", 75, 36, 35, 66, 32, 0),
+    new CardGenerator("Hydreigon", 58, 48, 44, 55, 160, 0),
+    new CardGenerator("Pyroar", 45, 45, 38, 68, 81.5, 0),
+    new CardGenerator("Gogoat", 45, 50, 34, 42, 91, 0),
+    new CardGenerator("Pangoro", 64, 44, 34, 38, 136, 0),
+    new CardGenerator("Tyrantrum", 64, 36, 55, 46, 270, 0),
+    new CardGenerator("Goodra", 52, 45,38, 42, 150.5),
+]
 
-player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in player
-player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Splits player deck and gives other half to other player (array), now cards in two seperate arrays
+let player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in player
+let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Splits player deck and gives other half to other player (array), now cards in two seperate arrays
 
 toggle()
-
-// Convert to something like below
-
-// let deck = [
-//     new CardGenerator("Venusaur", 1,2,3,4,5,6),
-//     new CardGenerator("Venusaur", 1,2,3,4,5,6),
-// ]
-
-
 
 // 2 players (two compare functions? Swap arrays so player carries on?)
 // make counter = 0, if counter > 0 and they lose, they swap, when they lose the round their counter reset to 0
