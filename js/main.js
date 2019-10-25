@@ -1,6 +1,6 @@
+let toggler = true;
 let name1;
 let name2;
-let toggler = true;
 let limbo = []; 
 
 class CardGenerator {
@@ -200,8 +200,8 @@ let rulesButton = document.getElementById("rules")
 let controlsButton = document.getElementById("controls")
 let clearButton = document.getElementById("clearButton")
 
-let seeCardsButton = document.getElementsByClassName("seeCards")
-let playButton = document.getElementsByClassName("playCard")
+let seeCardsButton1 = document.getElementById("seeCards1")
+let playButton1 = document.getElementById("playCard1")
 
 namingPlayersButton.addEventListener("click", () => {
     namingPlayers()
@@ -219,13 +219,12 @@ clearButton.addEventListener("click", () => {
     clear()
 });
 
-seeCardsButton.addEventListener("click", () => {
+seeCardsButton1.addEventListener("click", () => {
     seeCards()
 });
 
-playButton.addEventListener("click", () => {
+playButton1.addEventListener("click", () => {
     valueChoice()
 });
-
 
 toggle()
