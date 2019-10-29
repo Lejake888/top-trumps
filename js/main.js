@@ -49,7 +49,25 @@ const toggle = () => {
 }
 
 const valueChoice = () => {
-    setTimeout(5000) // setTimeout(function(){ alert("Hello"); }, 3000);
+
+//     document.addEventListener("keydown", function(move) {
+//         if (move.which == 49) {
+//             compare(player1[0].attribute1, player2[0].attribute1);
+//         }
+//         else if (move.which == 50) {
+//             compare(player1[0].attribute2, player2[0].attribute2);
+//         }
+//         else if (move.which == 51) {
+//             compare(player1[0].attribute3, player2[0].attribute3);
+//         }
+//         else if (move.which == 52) {
+//             compare(player1[0].attribute4, player2[0].attribute4);
+//         }
+//         else if (move.which == 53) {
+//             compare(player1[0].attribute5, player2[0].attribute5);
+//         }
+// })
+
     let move = parseInt(prompt(`Choose a value to compare: 1: Attack, 2: Health, 3: Defense, 4: Speed 5: Weight [Your Card: ${player1[0].name}]`)); // Checks input is number 
         if (move == 1) {
             compare(player1[0].attribute1, player2[0].attribute1);
