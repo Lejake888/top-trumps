@@ -37,18 +37,21 @@ const seeCards = () => {
     Amount Of Cards: ${player2.length}`
 }
 
-const toggle = () => {
-    if (!toggler){
-        alert(`${name1} lost the round! It's now ${name2}'s turn`) // need to work out name changes
-        tempName = name1;
-        name1 = name2;
-        name2 = tempName;
-        temp = player1;
-        player1 = player2;
-        player2 = temp;
-        toggler = true;
-    }  
-}
+// const toggle = () => {
+//     if (!toggler){
+//         // alert(`${name1} lost the round! It's now ${name2}'s turn`) // need to work out name changes
+//         // tempName = name1;
+//         // name1 = name2;
+//         // name2 = tempName;
+//         // temp = player1;
+//         // player1 = player2;
+//         // player2 = temp;
+//         // toggler = true;
+//     }  
+//     else if (toggler){
+//         console.log("Hi")
+//     }
+// }
 
 // const valueChoice = () => {
 
@@ -90,6 +93,8 @@ const compare = (pla1Card, pla2Card) => {
             });
             limbo = []; // Empties array, since these cards have now been recorded
         }
+        toggler = true;
+        toggle()
 
     }
     else if (pla1Card < pla2Card) {
@@ -124,7 +129,7 @@ const compare = (pla1Card, pla2Card) => {
         player2.shift();
         player1.shift();
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
-        document.getElementByIdX("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
+        document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
         document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
     }
     if (player1.length == 0) {
@@ -230,6 +235,7 @@ seeCardsButton1.addEventListener("click", () => {
 // });
 
 document.addEventListener("keydown", function(move) {
+if (toggler)
     if (move.which == 49) {
         compare(player1[0].attribute1, player2[0].attribute1);
     }
@@ -246,4 +252,6 @@ document.addEventListener("keydown", function(move) {
         compare(player1[0].attribute5, player2[0].attribute5);
     }})
 
-toggle()
+
+// Need to use toggler more, inside functions
+// pass different parameters dependent on toggler
