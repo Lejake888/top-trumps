@@ -26,13 +26,15 @@ const seeCards = () => {
     Health: ${player1[0].attribute2}<br> 
     Defense: ${player1[0].attribute3}<br> 
     Speed: ${player1[0].attribute4}<br> 
-    Weight: ${player1[0].attribute5}<br> `
+    Weight: ${player1[0].attribute5}<br> 
+    Amount Of Cards: ${player1.length}`
     document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
     Attack: ???<br> 
     Health: ???<br> 
     Defense: ???}<br> 
     Speed: ???<br> 
-    Weight: ???<br> `
+    Weight: ???<br> 
+    Amount Of Cards: ${player2.length}`
 }
 
 const toggle = () => {
@@ -48,43 +50,25 @@ const toggle = () => {
     }  
 }
 
-const valueChoice = () => {
+// const valueChoice = () => {
 
-//     document.addEventListener("keydown", function(move) {
-//         if (move.which == 49) {
-//             compare(player1[0].attribute1, player2[0].attribute1);
-//         }
-//         else if (move.which == 50) {
-//             compare(player1[0].attribute2, player2[0].attribute2);
-//         }
-//         else if (move.which == 51) {
-//             compare(player1[0].attribute3, player2[0].attribute3);
-//         }
-//         else if (move.which == 52) {
-//             compare(player1[0].attribute4, player2[0].attribute4);
-//         }
-//         else if (move.which == 53) {
-//             compare(player1[0].attribute5, player2[0].attribute5);
-//         }
-// })
-
-    let move = parseInt(prompt(`Choose a value to compare: 1: Attack, 2: Health, 3: Defense, 4: Speed 5: Weight [Your Card: ${player1[0].name}]`)); // Checks input is number 
-        if (move == 1) {
-            compare(player1[0].attribute1, player2[0].attribute1);
-        }
-        else if (move == 2) {
-            compare(player1[0].attribute2, player2[0].attribute2);
-        }
-        else if (move == 3) {
-            compare(player1[0].attribute3, player2[0].attribute3);
-        }
-        else if (move == 4) {
-            compare(player1[0].attribute4, player2[0].attribute4);
-        }
-        else if (move == 5) {
-            compare(player1[0].attribute5, player2[0].attribute5);
-        }
-}
+    // let move = parseInt(prompt(`Choose a value to compare: 1: Attack, 2: Health, 3: Defense, 4: Speed 5: Weight [Your Card: ${player1[0].name}]`)); // Checks input is number 
+    //     if (move == 1) {
+    //         compare(player1[0].attribute1, player2[0].attribute1);
+    //     }
+    //     else if (move == 2) {
+    //         compare(player1[0].attribute2, player2[0].attribute2);
+    //     }
+    //     else if (move == 3) {
+    //         compare(player1[0].attribute3, player2[0].attribute3);
+    //     }
+    //     else if (move == 4) {
+    //         compare(player1[0].attribute4, player2[0].attribute4);
+    //     }
+    //     else if (move == 5) {
+    //         compare(player1[0].attribute5, player2[0].attribute5);
+    //     }
+    // }
 
 const compare = (pla1Card, pla2Card) => {   
     if (pla1Card > pla2Card) { 
@@ -134,7 +118,7 @@ const compare = (pla1Card, pla2Card) => {
     else if (pla1Card == pla2Card) {
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
         document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
-        document.getElementById("description").innerHTML +="No one wins the round"
+        document.getElementById("description").innerHTML +="No one wins the round<br>"
         limbo.push(player1[0]);
         limbo.push(player2[0]);
         player2.shift();
@@ -156,15 +140,15 @@ const shuffle = (array) =>  {
     return array // returns random array
   }
 
-const rules = () => {
+// const rules = () => {
 
-}
+// }
 
 const controls = () => {
-    document.getElementById("description").innerHTML += `Controls: <br>Press “Set Names” to set the names of both players<br>`
-    document.getElementById("description").innerHTML += `Press “Rules” to see the rules<br>`
-    document.getElementById("description").innerHTML += `Press “See card” to view your current card<br>` 
-    document.getElementById("description").innerHTML += `Press “Play” to make your move<br> <hr>`
+    document.getElementById("description").innerHTML += `Controls: <br>1- Press “Set Names” to set the names of both players<br>`
+    document.getElementById("description").innerHTML += `2- Press “Rules” to see the rules<br>`
+    document.getElementById("description").innerHTML += `3- Press “See card” to view your current card<br>` 
+    document.getElementById("description").innerHTML += `4- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
 const namingPlayers = () => {
@@ -241,8 +225,25 @@ seeCardsButton1.addEventListener("click", () => {
     seeCards()
 });
 
-playButton1.addEventListener("click", () => {
-    valueChoice()
-});
+// playButton1.addEventListener("click", () => {
+//     valueChoice()
+// });
+
+document.addEventListener("keydown", function(move) {
+    if (move.which == 49) {
+        compare(player1[0].attribute1, player2[0].attribute1);
+    }
+    else if (move.which == 50) {
+        compare(player1[0].attribute2, player2[0].attribute2);
+    }
+    else if (move.which == 51) {
+        compare(player1[0].attribute3, player2[0].attribute3);
+    }
+    else if (move.which == 52) {
+        compare(player1[0].attribute4, player2[0].attribute4);
+    }
+    else if (move.which == 53) {
+        compare(player1[0].attribute5, player2[0].attribute5);
+    }})
 
 toggle()
