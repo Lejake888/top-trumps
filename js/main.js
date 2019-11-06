@@ -53,26 +53,6 @@ const seeCards = () => {
 //     }
 // }
 
-// const valueChoice = () => {
-
-    // let move = parseInt(prompt(`Choose a value to compare: 1: Attack, 2: Health, 3: Defense, 4: Speed 5: Weight [Your Card: ${player1[0].name}]`)); // Checks input is number 
-    //     if (move == 1) {
-    //         compare(player1[0].attribute1, player2[0].attribute1);
-    //     }
-    //     else if (move == 2) {
-    //         compare(player1[0].attribute2, player2[0].attribute2);
-    //     }
-    //     else if (move == 3) {
-    //         compare(player1[0].attribute3, player2[0].attribute3);
-    //     }
-    //     else if (move == 4) {
-    //         compare(player1[0].attribute4, player2[0].attribute4);
-    //     }
-    //     else if (move == 5) {
-    //         compare(player1[0].attribute5, player2[0].attribute5);
-    //     }
-    // }
-
 const compare = (pla1Card, pla2Card) => {   
     if (pla1Card > pla2Card) { 
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
@@ -194,7 +174,7 @@ let deck = [
     new CardGenerator("Gogoat", 45, 50, 34, 42, 91, 0),
     new CardGenerator("Pangoro", 64, 44, 34, 38, 136, 0),
     new CardGenerator("Tyrantrum", 64, 36, 55, 46, 270, 0),
-    new CardGenerator("Goodra", 52, 45,38, 42, 150.5),
+    new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0),
 ]
 
 let player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in player
