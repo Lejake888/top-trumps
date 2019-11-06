@@ -237,21 +237,27 @@ seeCardsButton1.addEventListener("click", () => {
 document.addEventListener("keydown", function(move) {
 if (toggler)
     if (move.which == 49) {
+        document.getElementById("description").innerHTML += `You chose the "Attack" attribute <br>`
         compare(player1[0].attribute1, player2[0].attribute1);
     }
     else if (move.which == 50) {
+        document.getElementById("description").innerHTML += `You chose the "Health" attribute <br>`
         compare(player1[0].attribute2, player2[0].attribute2);
     }
     else if (move.which == 51) {
+        document.getElementById("description").innerHTML += `You chose the "Defense" attribute <br>`
         compare(player1[0].attribute3, player2[0].attribute3);
     }
     else if (move.which == 52) {
+        document.getElementById("description").innerHTML += `You chose the "Speed" attribute <br>`
         compare(player1[0].attribute4, player2[0].attribute4);
     }
     else if (move.which == 53) {
+        document.getElementById("description").innerHTML += `You chose the "Weight" attribute <br>`
         compare(player1[0].attribute5, player2[0].attribute5);
     }})
 
 
 // Need to use toggler more, inside functions
 // pass different parameters dependent on toggler
+// Add react, makes it easier
