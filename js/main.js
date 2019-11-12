@@ -21,20 +21,38 @@ const clear = () => {
 }
 
 const seeCards = () => {
-    document.getElementById("description1").innerHTML = `[Your Card: ${player1[0].name}]<br> 
-    Attack: ${player1[0].attribute1}<br> 
-    Health: ${player1[0].attribute2}<br> 
-    Defense: ${player1[0].attribute3}<br> 
-    Speed: ${player1[0].attribute4}<br> 
-    Weight: ${player1[0].attribute5}<br> 
-    Amount Of Cards: ${player1.length}`
-    document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
-    Attack: ???<br> 
-    Health: ???<br> 
-    Defense: ???}<br> 
-    Speed: ???<br> 
-    Weight: ???<br> 
-    Amount Of Cards: ${player2.length}`
+    if (toggler) {
+        document.getElementById("description1").innerHTML = `[Your Card: ${player1[0].name}]<br> 
+        Attack: ${player1[0].attribute1}<br> 
+        Health: ${player1[0].attribute2}<br> 
+        Defense: ${player1[0].attribute3}<br> 
+        Speed: ${player1[0].attribute4}<br> 
+        Weight: ${player1[0].attribute5}<br> 
+        Amount Of Cards: ${player1.length}`
+        document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
+        Attack: ???<br> 
+        Health: ???<br> 
+        Defense: ???}<br> 
+        Speed: ???<br> 
+        Weight: ???<br> 
+        Amount Of Cards: ${player2.length}`
+    }
+    else {
+        document.getElementById("description2").innerHTML = `[Your Card: ${player1[0].name}]<br> 
+        Attack: ${player1[0].attribute1}<br> 
+        Health: ${player1[0].attribute2}<br> 
+        Defense: ${player1[0].attribute3}<br> 
+        Speed: ${player1[0].attribute4}<br> 
+        Weight: ${player1[0].attribute5}<br> 
+        Amount Of Cards: ${player1.length}`
+        document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 
+        Attack: ???<br> 
+        Health: ???<br> 
+        Defense: ???}<br> 
+        Speed: ???<br> 
+        Weight: ???<br> 
+        Amount Of Cards: ${player2.length}`
+    }
 }
 
 // const toggle = () => {
@@ -52,26 +70,6 @@ const seeCards = () => {
 //         console.log("Hi")
 //     }
 // }
-
-// const valueChoice = () => {
-
-    // let move = parseInt(prompt(`Choose a value to compare: 1: Attack, 2: Health, 3: Defense, 4: Speed 5: Weight [Your Card: ${player1[0].name}]`)); // Checks input is number 
-    //     if (move == 1) {
-    //         compare(player1[0].attribute1, player2[0].attribute1);
-    //     }
-    //     else if (move == 2) {
-    //         compare(player1[0].attribute2, player2[0].attribute2);
-    //     }
-    //     else if (move == 3) {
-    //         compare(player1[0].attribute3, player2[0].attribute3);
-    //     }
-    //     else if (move == 4) {
-    //         compare(player1[0].attribute4, player2[0].attribute4);
-    //     }
-    //     else if (move == 5) {
-    //         compare(player1[0].attribute5, player2[0].attribute5);
-    //     }
-    // }
 
 const compare = (pla1Card, pla2Card) => {   
     if (pla1Card > pla2Card) { 
@@ -94,7 +92,7 @@ const compare = (pla1Card, pla2Card) => {
             limbo = []; // Empties array, since these cards have now been recorded
         }
         toggler = true;
-        toggle()
+        // toggle()
 
     }
     else if (pla1Card < pla2Card) {
@@ -117,7 +115,7 @@ const compare = (pla1Card, pla2Card) => {
             limbo = [];
         }
         toggler = false;
-        toggle()
+        // toggle()
 
     }
     else if (pla1Card == pla2Card) {
@@ -146,7 +144,11 @@ const shuffle = (array) =>  {
   }
 
 // const rules = () => {
-
+//     document.getElementById("description").innerHTML += `1- Player 1 will pick a statistic from their card<br>`
+//     document.getElementById("description").innerHTML += `2- Player 2 will compares this number against the same statistic<br>`
+//     document.getElementById("description").innerHTML += `3- Whoever has the highest statistic wins the other person's card<br>` 
+//     document.getElementById("description").innerHTML += `4- The winner starts the next round<br>`
+//     document.getElementById("description").innerHTML += `5- The first player to get all 30 cards wins the game<br> <hr>`
 // }
 
 const controls = () => {
@@ -208,7 +210,7 @@ let controlsButton = document.getElementById("controls")
 let clearButton = document.getElementById("clearButton")
 
 let seeCardsButton1 = document.getElementById("seeCards1")
-let playButton1 = document.getElementById("playCard1")
+let seeCardsButton2 = document.getElementById("seeCards2")
 
 namingPlayersButton.addEventListener("click", () => {
     namingPlayers()
@@ -227,15 +229,24 @@ clearButton.addEventListener("click", () => {
 });
 
 seeCardsButton1.addEventListener("click", () => {
-    seeCards()
+    if (!toggler) {
+        document.getElementById("description").innerHTML +=`It is not your turn  <br> <hr>`
+    }
+    else {
+        seeCards()
+    }
 });
 
-// playButton1.addEventListener("click", () => {
-//     valueChoice()
-// });
+seeCardsButton2.addEventListener("click", () => {
+    if (toggler) {
+        document.getElementById("description").innerHTML += `It is not your turn <br> <hr>`
+    }
+    else {
+        seeCards()
+    }
+});
 
 document.addEventListener("keydown", function(move) {
-if (toggler)
     if (move.which == 49) {
         compare(player1[0].attribute1, player2[0].attribute1);
     }
@@ -253,5 +264,4 @@ if (toggler)
     }})
 
 
-// Need to use toggler more, inside functions
-// pass different parameters dependent on toggler
+// Need to swap names, but seems to work
