@@ -196,7 +196,7 @@ let deck = [
     new CardGenerator("Gogoat", 45, 50, 34, 42, 91, 0),
     new CardGenerator("Pangoro", 64, 44, 34, 38, 136, 0),
     new CardGenerator("Tyrantrum", 64, 36, 55, 46, 270, 0),
-    new CardGenerator("Goodra", 52, 45,38, 42, 150.5),
+    new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0),
 ]
 
 let player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in player
@@ -248,20 +248,26 @@ seeCardsButton2.addEventListener("click", () => {
 
 document.addEventListener("keydown", function(move) {
     if (move.which == 49) {
+        document.getElementById("description").innerHTML += `You chose the "Attack" attribute <br>`
         compare(player1[0].attribute1, player2[0].attribute1);
     }
     else if (move.which == 50) {
+        document.getElementById("description").innerHTML += `You chose the "Health" attribute <br>`
         compare(player1[0].attribute2, player2[0].attribute2);
     }
     else if (move.which == 51) {
+        document.getElementById("description").innerHTML += `You chose the "Defense" attribute <br>`
         compare(player1[0].attribute3, player2[0].attribute3);
     }
     else if (move.which == 52) {
+        document.getElementById("description").innerHTML += `You chose the "Speed" attribute <br>`
         compare(player1[0].attribute4, player2[0].attribute4);
     }
     else if (move.which == 53) {
+        document.getElementById("description").innerHTML += `You chose the "Weight" attribute <br>`
         compare(player1[0].attribute5, player2[0].attribute5);
     }})
+
 
 
 // Need to swap names, but seems to work
