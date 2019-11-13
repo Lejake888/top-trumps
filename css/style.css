@@ -5,6 +5,7 @@
 body {
     background: url(https://img4.goodfon.com/wallpaper/nbig/1/f8/8bit-8bit-grafika-les-retro-fon-pikseli-pxl.jpg);
     font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
 }
 
 #start {
@@ -76,6 +77,8 @@ button:active {
     width: 45%;
     height: 520px;
     margin: 3%;
+    margin-top: 2%;
+    border: 3px solid black;
 }
 
 /* Move Log */

@@ -84,7 +84,6 @@ const compare = (pla1Card, pla2Card) => {
         document.getElementById("description").innerHTML +=`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}<br>`
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
         document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
-        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         if (limbo.length > 0) {
             limbo.forEach(card => {
                 player1.push(card);
@@ -92,6 +91,7 @@ const compare = (pla1Card, pla2Card) => {
             limbo = []; // Empties array, since these cards have now been recorded
         }
         toggler = true;
+        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         // toggle()
 
     }
@@ -107,7 +107,6 @@ const compare = (pla1Card, pla2Card) => {
         document.getElementById("description").innerHTML +=`${player2[player2.length-1].name} wins: ${player2[player2.length-1].wins}<br>`
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
         document.getElementById("description").innerHTML +=`${name2}  Cards left: ${player2.length}<br>`
-        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         if (limbo.length > 0) {
             limbo.forEach(card => {
                 player2.push(card);
@@ -116,6 +115,7 @@ const compare = (pla1Card, pla2Card) => {
         }
         toggler = false;
         // toggle()
+        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
 
     }
     else if (pla1Card == pla2Card) {
