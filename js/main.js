@@ -143,19 +143,12 @@ const shuffle = (array) =>  {
     return array // returns random array
   }
 
-// const rules = () => {
-//     document.getElementById("description").innerHTML += `1- Player 1 will pick a statistic from their card<br>`
-//     document.getElementById("description").innerHTML += `2- Player 2 will compares this number against the same statistic<br>`
-//     document.getElementById("description").innerHTML += `3- Whoever has the highest statistic wins the other person's card<br>` 
-//     document.getElementById("description").innerHTML += `4- The winner starts the next round<br>`
-//     document.getElementById("description").innerHTML += `5- The first player to get all 30 cards wins the game<br> <hr>`
-// }
+const rules = () => {
+    document.getElementById("description").innerHTML += `1- Player 1 will pick a statistic from their card<br>2- Player 2 will compares this number against the same statistic<br>3- Whoever has the highest statistic wins the other person's card<br>4- The winner starts the next round<br>5- The first player to get all 30 cards wins the game<br> <hr>`
+}
 
 const controls = () => {
-    document.getElementById("description").innerHTML += `Controls: <br>1- Press “Set Names” to set the names of both players<br>`
-    document.getElementById("description").innerHTML += `2- Press “Rules” to see the rules<br>`
-    document.getElementById("description").innerHTML += `3- Press “See card” to view your current card<br>` 
-    document.getElementById("description").innerHTML += `4- Choose which attribute to use by pressing a number<br> <hr>`
+    document.getElementById("description").innerHTML += `Controls: <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
 const namingPlayers = () => {
