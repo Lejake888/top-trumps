@@ -32,6 +32,7 @@ const seeCards = () => {
         Weight: ${player1[0].attribute5}<br> 
         Amount Of Cards: ${player1.length}`
         image1.src = `images/${player1[0].name}.png`
+        image2.src = `images/unknown.png`
         document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -48,6 +49,7 @@ const seeCards = () => {
         Speed: ${player2[0].attribute4}<br> 
         Weight: ${player2[0].attribute5}<br> 
         Amount Of Cards: ${player2.length}`
+        image1.src = `images/unknown.png`
         image2.src = `images/${player2[0].name}.png`
 
         document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 

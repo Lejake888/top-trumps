@@ -12,13 +12,6 @@ body {
     text-align: center;
 }
 
-img {
-    width: 150px;
-    height: 150px;
-    position:absolute; 
-    bottom:0;
-}
-
 /* HEADER, MAIN SECTION */
 
 #start > h1{
@@ -31,6 +24,12 @@ img {
     color: 15px;
     line-height: 2;
 }
+
+/* #title {
+    animation-name: flash;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+} */
 
 /* BUTTONS */
 
@@ -90,12 +89,20 @@ button:active {
     border: 3px solid black;
 }
 
+img {
+    width: 150px;
+    height: 150px;
+    position:absolute; 
+    bottom:0;
+    padding: 10px;
+}
+
 /* Move Log */
 
 .log {
     overflow: scroll;
+    overflow-x: hidden;
     background: rgba(170, 170, 170, 0.87);
-
 }
 
 #description, #description1, #description2 {
@@ -104,3 +111,10 @@ button:active {
     line-height: 2;
     flex-wrap:wrap;
 }
+
+/* Animation */
+
+/* @keyframes flash {
+    from {color: black;}
+    to {color: white;}
+} */
