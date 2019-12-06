@@ -196,7 +196,7 @@ let deck = [
     new CardGenerator("Gogoat", 45, 50, 34, 42, 91, 0),
     new CardGenerator("Pangoro", 64, 44, 34, 38, 136, 0),
     new CardGenerator("Tyrantrum", 64, 36, 55, 46, 270, 0),
-    new CardGenerator("Goodra", 52, 45,38, 42, 150.5),
+    new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0)
 ]
 
 let player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in player
