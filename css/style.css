@@ -12,6 +12,12 @@ body {
     text-align: center;
 }
 
+img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+
 /* HEADER, MAIN SECTION */
 
 #start > h1{

@@ -2,6 +2,10 @@ let toggler = true;
 let name1;
 let name2;
 let limbo = []; 
+let image1 = document.getElementById("player1image")
+let image2 = document.getElementById("player2image")
+image1.src = "images/Aggron.png"
+image2.src = "images/Breloom.png"
 
 class CardGenerator {
     constructor(n,a,b,c,d,e,w) {
