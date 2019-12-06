@@ -13,9 +13,10 @@ body {
 }
 
 img {
-    position: absolute;
     width: 150px;
     height: 150px;
+    position:absolute; 
+    bottom:0;
 }
 
 /* HEADER, MAIN SECTION */
@@ -23,6 +24,7 @@ img {
 #start > h1{
     color:white;
     font-size: 50px;
+    vertical-align: bottom;
 }
 
 #start > p {
@@ -79,6 +81,7 @@ button:active {
 }
 
 .box {
+    position:relative;
     background: rgba(255,255,255,0.5);
     width: 45%;
     height: 520px;
