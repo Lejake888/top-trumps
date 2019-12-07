@@ -19,10 +19,15 @@ class CardGenerator {
 
 const winCheck = () => {
     if (player1.length == 0) {
+        console.log("p1 wins")
         document.getElementById("log").innerHTML +=`${name2} wins the game`
     }
     else if (player2.length == 0) {
+        console.log("p2 wins")
         document.getElementById("log").innerHTML +=`${name1} wins the game`
+    }
+    else {
+        console.log("No one has won yet")
     }
 }
 
@@ -139,7 +144,7 @@ const shuffle = (array) =>  {
   }
 
 const rules = () => {
-    document.getElementById("description").innerHTML += `<hr>`
+    document.getElementById("description").innerHTML += `Rules: <br>1- All 30 cards are dealt out<br>2- Player 1 will pick a statistic from their card<br>3- The attribute chosen is compared between both players<br>4- The highest number wins both cards, that player starts the next round<br>5- If there is a tie, the cards are put in the middle, the winner of the next round gets those cards too<br>6- The first player to all 30 cards wins<hr>`
 }
 
 const controls = () => {
