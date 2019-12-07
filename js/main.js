@@ -17,6 +17,19 @@ class CardGenerator {
     }
 }
 
+const winCheck = () => {
+    if (player1.length == 0) {
+        document.getElementById("log").innerHTML +=`${name2} wins the game`
+    }
+    else if (player2.length == 0) {
+        document.getElementById("log").innerHTML +=`${name1} wins the game`
+    }
+}
+
+const reset = () => {
+    window.location.reload();
+}
+
 const clear = () => {
     let log = document.getElementById("description")
     log.textContent = " "
@@ -58,7 +71,7 @@ const seeCards = () => {
         Defense: ???}<br> 
         Speed: ???<br> 
         Weight: ???<br> 
-        Amount Of Cards: ${player2.length}`
+        Amount Of Cards: ${player1.length}`
     }
 }
 
@@ -72,16 +85,16 @@ const compare = (pla1Card, pla2Card) => {
         player2.shift();
         let top = player1.shift();
         player1.push(top);
-        document.getElementById("description").innerHTML +=`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}<br>`
-        document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
-        document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
-        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         if (limbo.length > 0) {
             limbo.forEach(card => {
                 player1.push(card);
             });
             limbo = [];
         }
+        document.getElementById("description").innerHTML +=`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}<br>`
+        document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
+        document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
+        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         toggler = true;
     }
     else if (pla1Card < pla2Card) {
@@ -93,16 +106,16 @@ const compare = (pla1Card, pla2Card) => {
         player1.shift();
         let top = player2.shift();
         player2.push(top);
-        document.getElementById("description").innerHTML +=`${player2[player2.length-1].name} wins: ${player2[player2.length-1].wins}<br>`
-        document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
-        document.getElementById("description").innerHTML +=`${name2}  Cards left: ${player2.length}<br>`
-        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         if (limbo.length > 0) {
             limbo.forEach(card => {
                 player2.push(card);
             });
             limbo = [];
         }
+        document.getElementById("description").innerHTML +=`${player2[player2.length-1].name} wins: ${player2[player2.length-1].wins}<br>`
+        document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
+        document.getElementById("description").innerHTML +=`${name2}  Cards left: ${player2.length}<br>`
+        document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
         toggler = false;
     }
     else if (pla1Card == pla2Card) {
@@ -117,12 +130,7 @@ const compare = (pla1Card, pla2Card) => {
         document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
         document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
     }
-    if (player1.length == 0) {
-        document.getElementById("log").innerHTML +=`${name2} wins the game`
-    }
-    else if (player2.length == 0) {
-        document.getElementById("log").innerHTML +=`${name1} wins the game`
-    }
+    winCheck()
 }
 
 const shuffle = (array) =>  {
@@ -135,7 +143,7 @@ const rules = () => {
 }
 
 const controls = () => {
-    document.getElementById("description").innerHTML += `Controls: <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Choose which attribute to use by pressing a number<br> <hr>`
+    document.getElementById("description").innerHTML += `Controls: <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
 const namingPlayers = () => {
@@ -186,6 +194,7 @@ let player2 = player1.splice(0, Math.ceil(player1.length / 2));
 let namingPlayersButton = document.getElementById("namingPlayers")
 let rulesButton = document.getElementById("rules")
 let controlsButton = document.getElementById("controls")
+let resetButton = document.getElementById("reset")
 let clearButton = document.getElementById("clearButton")
 
 let seeCardsButton1 = document.getElementById("seeCards1")
@@ -201,6 +210,10 @@ rulesButton.addEventListener("click", () => {
 
 controlsButton.addEventListener("click", () => {
     controls()
+});
+
+resetButton.addEventListener("click", () => {
+    reset()
 });
 
 clearButton.addEventListener("click", () => {
