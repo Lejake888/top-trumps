@@ -151,7 +151,7 @@ const shuffle = (array) =>  {
   }
 
 const rules = () => {
-    document.getElementById("description").innerHTML += `1- Player 1 will pick a statistic from their card<br>2- Player 2 will compares this number against the same statistic<br>3- Whoever has the highest statistic wins the other person's card<br>4- The winner starts the next round<br>5- The first player to get all 30 cards wins the game<br> <hr>`
+    document.getElementById("description").innerHTML += `Rules: <br>1- Player 1 will pick a statistic from their card<br>2- Player 2 will compares this number against the same statistic<br>3- Whoever has the highest statistic wins the other person's card<br>4- The winner starts the next round<br>5- The first player to get all 30 cards wins the game<br> <hr>`
 }
 
 const controls = () => {
@@ -164,6 +164,7 @@ const namingPlayers = () => {
     name2= prompt(`Ok, what's your name player 2?`);
     document.getElementById("playerTwoName").innerHTML = "Name: " + name2;
     document.getElementById("fight").innerHTML = name1 + " vs " + name2;
+    document.getElementById("namingPlayers").disabled = true;
 }
 
 let deck = [

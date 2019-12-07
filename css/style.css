@@ -53,6 +53,11 @@ button:active {
     font-size: 14px;
 }
 
+button:disabled {
+    color: rgb(63, 63, 63);
+    font-size: 14px;
+}
+
 /* DISPLAY BOX */
 
 .infoBox {
@@ -90,11 +95,13 @@ button:active {
 }
 
 img {
+    display: block;
     width: 150px;
     height: 150px;
     position:absolute; 
     bottom:0;
     padding: 10px;
+    margin: 0 auto;
 }
 
 /* Move Log */
