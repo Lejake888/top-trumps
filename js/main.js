@@ -19,12 +19,10 @@ class CardGenerator {
 
 const winCheck = () => {
     if (player1.length == 0) {
-        console.log("p1 wins")
-        document.getElementById("log").innerHTML +=`${name2} wins the game`
+        document.getElementById("description").innerHTML +=`${name2} wins the game`
     }
     else if (player2.length == 0) {
-        console.log("p2 wins")
-        document.getElementById("log").innerHTML +=`${name1} wins the game`
+        document.getElementById("description").innerHTML +=`${name1} wins the game`
     }
     else {
         console.log("No one has won yet")
