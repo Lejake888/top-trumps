@@ -152,7 +152,9 @@ const namingPlayers = () => {
     name2= prompt(`Ok, what's your name player 2?`);
     document.getElementById("playerTwoName").innerHTML = "Name: " + name2;
     document.getElementById("fight").innerHTML = name1 + " vs " + name2;
-    document.getElementById("namingPlayers").disabled = true;
+    if(name1 && name2) {
+        document.getElementById("namingPlayers").disabled = true;
+    }
 }
 
 let deck = [
