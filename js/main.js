@@ -13,7 +13,7 @@ class CardGenerator {
     this.attribute3 = c;
     this.attribute4 = d;
     this.attribute5 = e;
-    this.wins = w; // could have just set to 0...
+    this.wins = w;
     }
 }
 
@@ -62,22 +62,6 @@ const seeCards = () => {
     }
 }
 
-// const toggle = () => {
-//     if (!toggler){
-//         // alert(`${name1} lost the round! It's now ${name2}'s turn`) // need to work out name changes
-//         // tempName = name1;
-//         // name1 = name2;
-//         // name2 = tempName;
-//         // temp = player1;
-//         // player1 = player2;
-//         // player2 = temp;
-//         // toggler = true;
-//     }  
-//     else if (toggler){
-//         console.log("Hi")
-//     }
-// }
-
 const compare = (pla1Card, pla2Card) => {   
     if (pla1Card > pla2Card) { 
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
@@ -96,11 +80,9 @@ const compare = (pla1Card, pla2Card) => {
             limbo.forEach(card => {
                 player1.push(card);
             });
-            limbo = []; // Empties array, since these cards have now been recorded
+            limbo = [];
         }
         toggler = true;
-        // toggle()
-
     }
     else if (pla1Card < pla2Card) {
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
@@ -122,8 +104,6 @@ const compare = (pla1Card, pla2Card) => {
             limbo = [];
         }
         toggler = false;
-        // toggle()
-
     }
     else if (pla1Card == pla2Card) {
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
@@ -146,12 +126,12 @@ const compare = (pla1Card, pla2Card) => {
 }
 
 const shuffle = (array) =>  {
-    array.sort(() => Math.random()-0.5); // sorts array be randomising
-    return array // returns random array
+    array.sort(() => Math.random()-0.5);
+    return array 
   }
 
 const rules = () => {
-    document.getElementById("description").innerHTML += `Rules: <br>1- Player 1 will pick a statistic from their card<br>2- Player 2 will compares this number against the same statistic<br>3- Whoever has the highest statistic wins the other person's card<br>4- The winner starts the next round<br>5- The first player to get all 30 cards wins the game<br> <hr>`
+    document.getElementById("description").innerHTML += `<hr>`
 }
 
 const controls = () => {
@@ -200,10 +180,8 @@ let deck = [
     new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0)
 ]
 
-let player1 = shuffle(deck) // Calls shuffles method to change cards, all cards in player
-let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Splits player deck and gives other half to other player (array), now cards in two seperate arrays
-
-// Buttons inside of JS
+let player1 = shuffle(deck) 
+let player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
 
 let namingPlayersButton = document.getElementById("namingPlayers")
 let rulesButton = document.getElementById("rules")
@@ -263,6 +241,3 @@ document.addEventListener("keydown", function(move) {
     else if (move.which == 53) {
         compare(player1[0].attribute5, player2[0].attribute5);
     }})
-
-
-// Need to swap names, but seems to work

@@ -94,6 +94,13 @@ button:disabled {
     border: 3px solid black;
 }
 
+span {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
 img {
     display: block;
     width: 150px;
@@ -101,7 +108,6 @@ img {
     position:absolute; 
     bottom:0;
     padding: 10px;
-    margin: 0 auto;
 }
 
 /* Move Log */
