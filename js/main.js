@@ -4,6 +4,7 @@ let name2;
 let limbo = []; 
 let image1 = document.getElementById("player1image")
 let image2 = document.getElementById("player2image")
+let counter = 0;
 
 class CardGenerator {
     constructor(n,a,b,c,d,e,w) {
@@ -19,10 +20,10 @@ class CardGenerator {
 
 const winCheck = () => {
     if (player1.length == 0) {
-        document.getElementById("description").innerHTML +=`${name2} wins the game`
+        document.getElementById("description").innerHTML +=`${name2} wins the game<br>Number of rounds: ${counter}`
     }
     else if (player2.length == 0) {
-        document.getElementById("description").innerHTML +=`${name1} wins the game`
+        document.getElementById("description").innerHTML +=`${name1} wins the game<br>Number of rounds: ${counter}`
     }
     else {
         console.log("No one has won yet")
@@ -78,7 +79,14 @@ const seeCards = () => {
     }
 }
 
-const compare = (pla1Card, pla2Card) => {   
+const compare = (pla1Card, pla2Card) => {  
+    counter += 1; 
+    if (toggler) {
+        document.getElementById("description").innerHTML +=`Round ${counter}: ${name1}'s turn<br><hr>`
+    }
+    else {
+        document.getElementById("description").innerHTML +=`Round ${counter}: ${name2}'s turn<br><hr>`
+    }
     if (pla1Card > pla2Card) { 
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
         document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
