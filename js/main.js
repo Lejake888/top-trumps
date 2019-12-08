@@ -82,10 +82,10 @@ const seeCards = () => {
 const compare = (pla1Card, pla2Card) => {  
     counter += 1; 
     if (toggler) {
-        document.getElementById("description").innerHTML +=`Round ${counter}: ${name1}'s turn<br><hr>`
+        document.getElementById("description").innerHTML +=`Round ${counter}:<br> ${name1}'s turn<br><hr>`
     }
     else {
-        document.getElementById("description").innerHTML +=`Round ${counter}: ${name2}'s turn<br><hr>`
+        document.getElementById("description").innerHTML +=`Round ${counter}:<br> ${name2}'s turn<br><hr>`
     }
     if (pla1Card > pla2Card) { 
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`

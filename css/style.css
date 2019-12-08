@@ -66,12 +66,12 @@ button:disabled {
     flex-direction: row;
 }
 
-.infoBox > .box > h2{
+.infoBox > .box > h2 {
     margin: 20px;
     font-size: 20px;
 }
 
-.infoBox > .box > #playerOneName, #playerTwoName, #fight{
+.infoBox > .box > #playerOneName, #playerTwoName, #fight {
     color:red;
     font-size: 15px;
     font-family: '8BITWONDERNominal';
