@@ -25,11 +25,11 @@ body {
     line-height: 2;
 }
 
-/* #title {
+#title {
     animation-name: flash;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
-} */
+}
 
 /* BUTTONS */
 
@@ -125,11 +125,14 @@ img {
     font-size: 12px;
     line-height: 2;
     flex-wrap:wrap;
+    overflow: auto;
 }
 
 /* Animation */
 
-/* @keyframes flash {
-    from {color: black;}
-    to {color: white;}
-} */
+@keyframes flash {
+    0% {color: black;}
+    50% {color: white;}
+    100% {color: black;}
+
+}
