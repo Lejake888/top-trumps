@@ -82,10 +82,10 @@ const seeCards = () => {
 const compare = (pla1Card, pla2Card) => {  
     counter += 1; 
     if (toggler) {
-        document.getElementById("description").innerHTML +=`Round ${counter}:<br> ${name1}'s turn<br><hr>`
+        document.getElementById("description").innerHTML +=`<u>Round ${counter}:</u><br> ${name1}'s turn<br><hr>`
     }
     else {
-        document.getElementById("description").innerHTML +=`Round ${counter}:<br> ${name2}'s turn<br><hr>`
+        document.getElementById("description").innerHTML +=`<u>Round ${counter}:</u><br> ${name2}'s turn<br><hr>`
     }
     if (pla1Card > pla2Card) { 
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
@@ -150,11 +150,11 @@ const shuffle = (array) =>  {
   }
 
 const rules = () => {
-    document.getElementById("description").innerHTML += `Rules: <br>1- All 30 cards are dealt out<br>2- Player 1 will pick a statistic from their card<br>3- The attribute chosen is compared between both players<br>4- The highest number wins both cards, that player starts the next round<br>5- If there is a tie, the cards are put in the middle, the winner of the next round gets those cards too<br>6- The first player to all 30 cards wins<hr>`
+    document.getElementById("description").innerHTML += `<u>Rules:</u> <br>1- All 30 cards are dealt out<br>2- Player 1 will pick a statistic from their card<br>3- The attribute chosen is compared between both players<br>4- The highest number wins both cards, that player starts the next round<br>5- If there is a tie, the cards are put in the middle, the winner of the next round gets those cards too<br>6- The first player to all 30 cards wins<hr>`
 }
 
 const controls = () => {
-    document.getElementById("description").innerHTML += `Controls: <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
+    document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
 const namingPlayers = () => {

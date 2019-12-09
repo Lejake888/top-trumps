@@ -128,6 +128,10 @@ img {
     overflow: auto;
 }
 
+u {
+    color: white;
+}
+
 /* Animation */
 
 @keyframes flash {
