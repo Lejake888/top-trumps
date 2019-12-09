@@ -1,64 +1,61 @@
-let toggler = true;
-let name1;
+let toggler = true; // Toggle used to switch between player 1 and player 2
+let name1; // name1 and name2 have to be global, otherwise name won't display on webpage
 let name2;
-let limbo = []; 
-let image1 = document.getElementById("player1image")
+let limbo = []; // Empty array, tied cards get pushed here
+let image1 = document.getElementById("player1image") // Loads in image tags, can change the source later in the program
 let image2 = document.getElementById("player2image")
-let counter = 0;
+let counter = 0; // Counter used to keep track of how many rounds there have been
 
-class CardGenerator {
+class CardGenerator {  // Creates each card
     constructor(n,a,b,c,d,e,w) {
-    this.name = n;
+    this.name = n; 
     this.attribute1 = a; 
     this.attribute2 = b;
     this.attribute3 = c;
     this.attribute4 = d;
     this.attribute5 = e;
-    this.wins = w;
+    this.wins = w; 
     }
 }
 
-const winCheck = () => {
-    if (player1.length == 0) {
-        document.getElementById("description").innerHTML +=`${name2} wins the game<br>Number of rounds: ${counter}`
+const winCheck = () => { // Checks if any player has won, happens each round
+    if (player1.length == 0) { // If the length of player 1 is 0, player 2 has won, and vice versa
+        document.getElementById("description").innerHTML +=`${name2} wins the game<br>Number of rounds: ${counter}<br>`
     }
     else if (player2.length == 0) {
-        document.getElementById("description").innerHTML +=`${name1} wins the game<br>Number of rounds: ${counter}`
-    }
-    else {
-        console.log("No one has won yet")
+        document.getElementById("description").innerHTML +=`${name1} wins the game<br>Number of rounds: ${counter}<br>`
     }
 }
 
-const reset = () => {
+const reset = () => { // Game starts again, quick test, may implement an "undo" button
     window.location.reload();
 }
 
-const clear = () => {
+const clear = () => { // Clears the description if users decided to clear the log
     let log = document.getElementById("description")
     log.textContent = " "
 }
 
-const seeCards = () => {
-    if (toggler) {
+const seeCards = () => { // See card == drawing a card
+    if (toggler) { // Checks if player 1 is playing
         document.getElementById("description1").innerHTML = `[Your Card: ${player1[0].name}]<br> 
         Attack: ${player1[0].attribute1}<br> 
         Health: ${player1[0].attribute2}<br> 
         Defense: ${player1[0].attribute3}<br> 
         Speed: ${player1[0].attribute4}<br> 
         Weight: ${player1[0].attribute5}<br> 
-        Amount Of Cards: ${player1.length}`
-        image1.src = `images/${player1[0].name}.png`
-        image2.src = `images/unknown.png`
+        Amount Of Cards: ${player1.length}` // Displays all the stats of player 1's card
+        image1.src = `images/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
+        image2.src = `images/unknown.png` // Since this card is supposed to be hidden, it has a filler image
         document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
         Defense: ???}<br> 
         Speed: ???<br> 
         Weight: ???<br> 
-        Amount Of Cards: ${player2.length}`
+        Amount Of Cards: ${player2.length}` // Stats are unknown, placeholder there instead
     }
-    else {
+    else { // if toggler == false, it's player 2's turn, the same as if, except reversed
         document.getElementById("description2").innerHTML = `[Your Card: ${player2[0].name}]<br> 
         Attack: ${player2[0].attribute1}<br> 
         Health: ${player2[0].attribute2}<br> 
@@ -68,7 +65,6 @@ const seeCards = () => {
         Amount Of Cards: ${player2.length}`
         image1.src = `images/unknown.png`
         image2.src = `images/${player2[0].name}.png`
-
         document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -79,40 +75,40 @@ const seeCards = () => {
     }
 }
 
-const compare = (pla1Card, pla2Card) => {  
-    counter += 1; 
-    if (toggler) {
+const compare = (pla1Card, pla2Card) => { // Compares the value of the stat chosen from each card
+    counter += 1; // Counter tracks number of rounds, so each time a round is played, counter increments by 1
+    if (toggler) { // Checks if it's player 1's turn
         document.getElementById("description").innerHTML +=`<u>Round ${counter}:</u><br> ${name1}'s turn<br><hr>`
     }
-    else {
+    else { // Else it's player 2's turn
         document.getElementById("description").innerHTML +=`<u>Round ${counter}:</u><br> ${name2}'s turn<br><hr>`
     }
-    if (pla1Card > pla2Card) { 
-        document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
+    if (pla1Card > pla2Card) { // If player 1 has the higher stat
+        document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>` // Displays both stats
         document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
-        document.getElementById("description").innerHTML +=`${name1} wins the round<br>`
-        player1[0].wins ++;
-        player1.push(player2[0]);
-        player2.shift();
-        let top = player1.shift();
-        player1.push(top);
-        if (limbo.length > 0) {
-            limbo.forEach(card => {
+        document.getElementById("description").innerHTML +=`${name1} wins the round<br>` // This is if player 1 has won the round
+        player1[0].wins ++; // Increments the winning card's stat
+        player1.push(player2[0]); // Losing card copied into player 1's deck
+        player2.shift(); // Losing card removed from player 2's deck
+        let top = player1.shift(); // Shift the top card on player 1's deck
+        player1.push(top); // Since we don't want to lose this card, the "top" card is added to the bottom of the deck
+        if (limbo.length > 0) { // Checks if there are any cards in limbo
+            limbo.forEach(card => { // If there are cards in limbo, they are added to the winner's deck
                 player1.push(card);
             });
-            limbo = [];
+            limbo = []; // Reset limbo so there are no duplicated cards
         }
-        document.getElementById("description").innerHTML +=`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}<br>`
+        document.getElementById("description").innerHTML +=`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}<br>` // Displays stats including player 1's cards, player 2's cards and middle cards
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
         document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
         document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
-        toggler = true;
+        toggler = true; // Since it's player 1's turn still, toggler is still true
     }
-    else if (pla1Card < pla2Card) {
+    else if (pla1Card < pla2Card) { // If player 2 has the higher stat, similar to player 1 winning 
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
         document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
         document.getElementById("description").innerHTML +=`${name2} wins the round<br>`
-        player2[0].wins ++;
+        player2[0].wins ++; // The winning card's winning stat is incremented by 1
         player2.push(player1[0]);
         player1.shift();
         let top = player2.shift();
@@ -127,13 +123,13 @@ const compare = (pla1Card, pla2Card) => {
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
         document.getElementById("description").innerHTML +=`${name2}  Cards left: ${player2.length}<br>`
         document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
-        toggler = false;
+        toggler = false; // Since player 2 has won, it's their turn next, so toggler == false
     }
-    else if (pla1Card == pla2Card) {
+    else if (pla1Card == pla2Card) { // If the stats match
         document.getElementById("description").innerHTML +=`${name1}'s Card: ${player1[0].name} (${pla1Card})<br>`
         document.getElementById("description").innerHTML +=`${name2}'s Card: ${player2[0].name} (${pla2Card})<br>`
         document.getElementById("description").innerHTML +="No one wins the round<br>"
-        limbo.push(player1[0]);
+        limbo.push(player1[0]); // Both of the top cards are added to limbo and removed
         limbo.push(player2[0]);
         player2.shift();
         player1.shift();
@@ -141,34 +137,34 @@ const compare = (pla1Card, pla2Card) => {
         document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
         document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
     }
-    winCheck()
+    winCheck() // Every round that is played, the program checks if there is a winner
 }
 
-const shuffle = (array) =>  {
+const shuffle = (array) =>  { // Randomises the order of the generated deck, this random deck is returned, deck is passed through
     array.sort(() => Math.random()-0.5);
     return array 
   }
 
-const rules = () => {
+const rules = () => { // Displays the rules in log box
     document.getElementById("description").innerHTML += `<u>Rules:</u> <br>1- All 30 cards are dealt out<br>2- Player 1 will pick a statistic from their card<br>3- The attribute chosen is compared between both players<br>4- The highest number wins both cards, that player starts the next round<br>5- If there is a tie, the cards are put in the middle, the winner of the next round gets those cards too<br>6- The first player to all 30 cards wins<hr>`
 }
 
-const controls = () => {
+const controls = () => { // Displays the controls in log box
     document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
-const namingPlayers = () => {
+const namingPlayers = () => { // Names the players through prompts, then displays player 1 and player 2's names
     name1= prompt(`What's your name player 1?`);
     document.getElementById("playerOneName").innerHTML = "Name: " + name1;
     name2= prompt(`Ok, what's your name player 2?`);
     document.getElementById("playerTwoName").innerHTML = "Name: " + name2;
     document.getElementById("fight").innerHTML = name1 + " vs " + name2;
-    if(name1 && name2) {
+    if(name1 && name2) { // If both names have been set, these names are final, else, the user can still rename the players
         document.getElementById("namingPlayers").disabled = true;
     }
 }
 
-let deck = [
+let deck = [ // An array of 30 objects, each card generation is placed inside the array, making 30 objects in an array
     new CardGenerator("Venusaur", 40, 30, 42, 42, 100, 0),
     new CardGenerator("Charizard", 45, 34, 34, 55, 90.5, 0),
     new CardGenerator("Blastoise", 42, 35, 40, 40, 85.5, 0),
@@ -201,10 +197,12 @@ let deck = [
     new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0)
 ]
 
-let player1 = shuffle(deck) 
-let player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
+let player1 = shuffle(deck) // Deck of 30 objects passed to the shuffle function, randomises order
+let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Half of the deck is added to player 2, the rest is left as player 1
 
-let namingPlayersButton = document.getElementById("namingPlayers")
+// All buttons are called here
+
+let namingPlayersButton = document.getElementById("namingPlayers")  
 let rulesButton = document.getElementById("rules")
 let controlsButton = document.getElementById("controls")
 let resetButton = document.getElementById("reset")
@@ -212,6 +210,8 @@ let clearButton = document.getElementById("clearButton")
 
 let seeCardsButton1 = document.getElementById("seeCards1")
 let seeCardsButton2 = document.getElementById("seeCards2")
+
+// Commands for each button click, calls a different function for each respecitively
 
 namingPlayersButton.addEventListener("click", () => {
     namingPlayers()
@@ -234,6 +234,7 @@ clearButton.addEventListener("click", () => {
 });
 
 seeCardsButton1.addEventListener("click", () => {
+    // If it's player 2's turn aka toggler == false, player 1 can't play, and a message is displayed 
     if (!toggler) {
         document.getElementById("description").innerHTML +=`It is not your turn...  <br> <hr>`
     }
@@ -243,6 +244,7 @@ seeCardsButton1.addEventListener("click", () => {
 });
 
 seeCardsButton2.addEventListener("click", () => {
+    // If it's player 1's turn aka toggler == true, player 2 can't play, and a message is displayed 
     if (toggler) {
         document.getElementById("description").innerHTML += `It is not your turn... <br> <hr>`
     }
@@ -252,6 +254,7 @@ seeCardsButton2.addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", function(move) {
+    // Uses button presses to choose a statistic. For example, pressing '1' will load the 'attack' attributes into the compare function
     if (move.which == 49) {
         compare(player1[0].attribute1, player2[0].attribute1);
     }
