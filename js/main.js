@@ -45,8 +45,10 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player1[0].attribute4}<br> 
         Weight: ${player1[0].attribute5}<br> 
         Amount Of Cards: ${player1.length}` // Displays all the stats of player 1's card
-        image1.src = `images/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
-        image2.src = `images/unknown.png` // Since this card is supposed to be hidden, it has a filler image
+        if ((packChoice-1) == 0) {
+            image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
+            image2.src = `images/unknown.png` // Since this card is supposed to be hidden, it has a filler image
+        }
         document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -63,8 +65,10 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player2[0].attribute4}<br> 
         Weight: ${player2[0].attribute5}<br> 
         Amount Of Cards: ${player2.length}`
-        image1.src = `images/unknown.png`
-        image2.src = `images/${player2[0].name}.png`
+        if ((packChoice-1) == 0) {
+            image1.src = `images/unknown.png`
+            image2.src = `images/${player2[0].name}.png`
+        }
         document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
