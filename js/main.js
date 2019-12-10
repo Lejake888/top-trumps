@@ -45,10 +45,8 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player1[0].attribute4}<br> 
         Weight: ${player1[0].attribute5}<br> 
         Amount Of Cards: ${player1.length}` // Displays all the stats of player 1's card
-        if ((packChoice-1) == 0) {
-            image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
-            image2.src = `images/unknown.png` // Since this card is supposed to be hidden, it has a filler image
-        }
+        image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
+        image2.src = `images/unknown.png` // Since this card is supposed to be hidden, it has a filler image
         document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -65,10 +63,8 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player2[0].attribute4}<br> 
         Weight: ${player2[0].attribute5}<br> 
         Amount Of Cards: ${player2.length}`
-        if ((packChoice-1) == 0) {
-            image1.src = `images/unknown.png`
-            image2.src = `images/${player2[0].name}.png`
-        }
+        image1.src = `images/unknown.png`
+        image2.src = `images/pokemon/${player2[0].name}.png`
         document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -215,7 +211,7 @@ let deck = [ // An array of 30 objects, each card generation is placed inside th
     ]
 ]
 
-let packChoice= parseInt(prompt("What deck would you like to use? 1= Pokemon 2= example"))
+let packChoice= parseInt(prompt("What deck would you like to use? 1= pokemon 2= example"))
 let player1 = shuffle(deck[packChoice-1]) // Deck of 30 objects passed to the shuffle function, randomises order
 let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Half of the deck is added to player 2, the rest is left as player 1
 
