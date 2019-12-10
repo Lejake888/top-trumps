@@ -215,7 +215,7 @@ let deck = [ // An array of 30 objects, each card generation is placed inside th
     ]
 ]
 
-let packChoice= parseInt(prompt("What deck would you like to use? 1= pokemon 2= example"))
+let packChoice= parseInt(prompt("What deck would you like to use? 1= Pokemon 2= example"))
 let player1 = shuffle(deck[packChoice-1]) // Deck of 30 objects passed to the shuffle function, randomises order
 let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Half of the deck is added to player 2, the rest is left as player 1
 
