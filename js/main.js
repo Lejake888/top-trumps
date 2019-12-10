@@ -40,14 +40,12 @@ const changeTheme = () => {
     theme++
     if (theme > 2) {
         player1 = shuffle(deck[0]) 
-        player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
-        document.getElementById("description").innerHTML +=`The theme has been changed<br><hr>`
     }
     else {
         player1 = shuffle(deck[theme]) 
-        player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
-        document.getElementById("description").innerHTML +=`The theme has been changed<br><hr>`
     }
+    player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
+    document.getElementById("description").innerHTML +=`The theme has been changed<br>Press "See card" to update<br><hr>`
 }
 
 const seeCards = () => { // See card == drawing a card
@@ -60,7 +58,7 @@ const seeCards = () => { // See card == drawing a card
         Weight: ${player1[0].attribute5}<br> 
         Amount Of Cards: ${player1.length}` // Displays all the stats of player 1's card
         image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
-        image2.src = `images/unknown.png` // Since this card is supposed to be hidden, it has a filler image
+        image2.src = `images/pokemon/unknown.png` // Since this card is supposed to be hidden, it has a filler image
         document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -77,7 +75,7 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player2[0].attribute4}<br> 
         Weight: ${player2[0].attribute5}<br> 
         Amount Of Cards: ${player2.length}`
-        image1.src = `images/unknown.png`
+        image1.src = `images/pokemon/unknown.png`
         image2.src = `images/pokemon/${player2[0].name}.png`
         document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
