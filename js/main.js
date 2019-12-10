@@ -46,6 +46,7 @@ const changeTheme = () => {
     }
     player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
     document.getElementById("description").innerHTML +=`The theme has been changed<br>Press "See card" to update<br><hr>`
+    toggler = true;
 }
 
 const seeCards = () => { // See card == drawing a card
@@ -57,8 +58,14 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player1[0].attribute4}<br> 
         Weight: ${player1[0].attribute5}<br> 
         Amount Of Cards: ${player1.length}` // Displays all the stats of player 1's card
-        image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
-        image2.src = `images/pokemon/unknown.png` // Since this card is supposed to be hidden, it has a filler image
+        if (theme == 0) {
+            image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
+            image2.src = `images/pokemon/unknown.png` // Since this card is supposed to be hidden, it has a filler image
+        }
+        if (theme == 1) {
+            image1.src = `images/numbers/${player1[0].name}.png`
+            image2.src = `images/numbers/unknown.png`
+        }
         document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -75,8 +82,14 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player2[0].attribute4}<br> 
         Weight: ${player2[0].attribute5}<br> 
         Amount Of Cards: ${player2.length}`
-        image1.src = `images/pokemon/unknown.png`
-        image2.src = `images/pokemon/${player2[0].name}.png`
+        if (theme == 0) {
+            image1.src = `images/pokemon/unknown.png`
+            image2.src = `images/pokemon/${player2[0].name}.png`
+        }
+        if (theme == 1) {
+            image1.src = `images/numbers/unknown.png`
+            image2.src = `images/numbers/${player2[0].name}.png`
+        }
         document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -162,7 +175,7 @@ const rules = () => { // Displays the rules in log box
 }
 
 const controls = () => { // Displays the controls in log box
-    document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
+    document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Change theme" to change the pack theme. The default pack is "Pokemon"<br>5- Press "Reset" to start a start a new game<br>6- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
 const namingPlayers = () => { // Names the players through prompts, then displays player 1 and player 2's names
