@@ -36,6 +36,20 @@ const clear = () => { // Clears the description if users decided to clear the lo
     log.textContent = " "
 }
 
+const changeTheme = () => {
+    theme++
+    if (theme > 2) {
+        player1 = shuffle(deck[0]) 
+        player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
+        document.getElementById("description").innerHTML +=`The theme has been changed<br><hr>`
+    }
+    else {
+        player1 = shuffle(deck[theme]) 
+        player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
+        document.getElementById("description").innerHTML +=`The theme has been changed<br><hr>`
+    }
+}
+
 const seeCards = () => { // See card == drawing a card
     if (toggler) { // Checks if player 1 is playing
         document.getElementById("description1").innerHTML = `[Your Card: ${player1[0].name}]<br> 
@@ -211,8 +225,8 @@ let deck = [ // An array of 30 objects, each card generation is placed inside th
     ]
 ]
 
-let packChoice= parseInt(prompt("What deck would you like to use? 1= pokemon 2= example"))
-let player1 = shuffle(deck[packChoice-1]) // Deck of 30 objects passed to the shuffle function, randomises order
+let theme = 0
+let player1 = shuffle(deck[theme]) // Deck of 30 objects passed to the shuffle function, randomises order
 let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Half of the deck is added to player 2, the rest is left as player 1
 
 // All buttons are called here
@@ -221,6 +235,7 @@ let namingPlayersButton = document.getElementById("namingPlayers")
 let rulesButton = document.getElementById("rules")
 let controlsButton = document.getElementById("controls")
 let resetButton = document.getElementById("reset")
+let changeThemeButton = document.getElementById("changeTheme")
 let clearButton = document.getElementById("clearButton")
 
 let seeCardsButton1 = document.getElementById("seeCards1")
@@ -242,6 +257,10 @@ controlsButton.addEventListener("click", () => {
 
 resetButton.addEventListener("click", () => {
     reset()
+});
+
+changeThemeButton.addEventListener("click", () => {
+    changeTheme()
 });
 
 clearButton.addEventListener("click", () => {
