@@ -165,39 +165,54 @@ const namingPlayers = () => { // Names the players through prompts, then display
 }
 
 let deck = [ // An array of 30 objects, each card generation is placed inside the array, making 30 objects in an array
-    new CardGenerator("Venusaur", 40, 30, 42, 42, 100, 0),
-    new CardGenerator("Charizard", 45, 34, 34, 55, 90.5, 0),
-    new CardGenerator("Blastoise", 42, 35, 40, 40, 85.5, 0),
-    new CardGenerator("Pickachu", 39, 28, 20, 58, 6, 0),
-    new CardGenerator("Sandshrew", 40, 28, 44, 22, 12, 0),
-    new CardGenerator("Mareep", 25, 26, 28, 25, 7.8, 0),
-    new CardGenerator("Yanma", 38, 30, 22, 56, 38, 0),
-    new CardGenerator("Miltank", 49, 48, 58, 55, 75.5, 0),
-    new CardGenerator("Blissey", 10, 100, 10, 32, 46.8, 0),
-    new CardGenerator("Tyranitar", 72, 48, 46, 34, 202, 0),
-    new CardGenerator("Gardevoir", 39, 35, 38, 44, 48.4, 0),
-    new CardGenerator("Breloom", 72, 35, 42, 46, 39.2, 0),
-    new CardGenerator("Aggron", 66, 32, 88, 34, 360, 0),
-    new CardGenerator("Flygon", 58, 34, 40, 58, 82, 0),
-    new CardGenerator("Milotic", 31, 48, 34, 48, 162, 0),
-    new CardGenerator("Luxray", 68, 38, 36, 44, 42, 0),
-    new CardGenerator("Vespiquen", 45, 38, 48, 22, 38.5, 0),
-    new CardGenerator("Lopunny", 45, 32, 44, 68, 33.3, 0),
-    new CardGenerator("Spiritomb", 54, 22, 54, 26, 108, 0),
-    new CardGenerator("Garchomp", 75, 46, 40, 55, 95, 0),
-    new CardGenerator("Musharna", 31, 56, 42, 22, 60.5, 0),
-    new CardGenerator("Zebstrika", 56, 34, 32, 62, 79.5, 0),
-    new CardGenerator("Scolipede", 56, 32, 42, 60, 200.5, 0),
-    new CardGenerator("Archeops", 75, 36, 35, 66, 32, 0),
-    new CardGenerator("Hydreigon", 58, 48, 44, 55, 160, 0),
-    new CardGenerator("Pyroar", 45, 45, 38, 68, 81.5, 0),
-    new CardGenerator("Gogoat", 45, 50, 34, 42, 91, 0),
-    new CardGenerator("Pangoro", 64, 44, 34, 38, 136, 0),
-    new CardGenerator("Tyrantrum", 64, 36, 55, 46, 270, 0),
-    new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0)
+        [
+        new CardGenerator("Venusaur", 40, 30, 42, 42, 100, 0),
+        new CardGenerator("Charizard", 45, 34, 34, 55, 90.5, 0),
+        new CardGenerator("Blastoise", 42, 35, 40, 40, 85.5, 0),
+        new CardGenerator("Pickachu", 39, 28, 20, 58, 6, 0),
+        new CardGenerator("Sandshrew", 40, 28, 44, 22, 12, 0),
+        new CardGenerator("Mareep", 25, 26, 28, 25, 7.8, 0),
+        new CardGenerator("Yanma", 38, 30, 22, 56, 38, 0),
+        new CardGenerator("Miltank", 49, 48, 58, 55, 75.5, 0),
+        new CardGenerator("Blissey", 10, 100, 10, 32, 46.8, 0),
+        new CardGenerator("Tyranitar", 72, 48, 46, 34, 202, 0),
+        new CardGenerator("Gardevoir", 39, 35, 38, 44, 48.4, 0),
+        new CardGenerator("Breloom", 72, 35, 42, 46, 39.2, 0),
+        new CardGenerator("Aggron", 66, 32, 88, 34, 360, 0),
+        new CardGenerator("Flygon", 58, 34, 40, 58, 82, 0),
+        new CardGenerator("Milotic", 31, 48, 34, 48, 162, 0),
+        new CardGenerator("Luxray", 68, 38, 36, 44, 42, 0),
+        new CardGenerator("Vespiquen", 45, 38, 48, 22, 38.5, 0),
+        new CardGenerator("Lopunny", 45, 32, 44, 68, 33.3, 0),
+        new CardGenerator("Spiritomb", 54, 22, 54, 26, 108, 0),
+        new CardGenerator("Garchomp", 75, 46, 40, 55, 95, 0),
+        new CardGenerator("Musharna", 31, 56, 42, 22, 60.5, 0),
+        new CardGenerator("Zebstrika", 56, 34, 32, 62, 79.5, 0),
+        new CardGenerator("Scolipede", 56, 32, 42, 60, 200.5, 0),
+        new CardGenerator("Archeops", 75, 36, 35, 66, 32, 0),
+        new CardGenerator("Hydreigon", 58, 48, 44, 55, 160, 0),
+        new CardGenerator("Pyroar", 45, 45, 38, 68, 81.5, 0),
+        new CardGenerator("Gogoat", 45, 50, 34, 42, 91, 0),
+        new CardGenerator("Pangoro", 64, 44, 34, 38, 136, 0),
+        new CardGenerator("Tyrantrum", 64, 36, 55, 46, 270, 0),
+        new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0)
+    ],
+    [
+        new CardGenerator("1", 40, 30, 42, 42, 100, 0),
+        new CardGenerator("2", 45, 34, 34, 55, 90.5, 0),
+        new CardGenerator("3", 42, 35, 40, 40, 85.5, 0),
+        new CardGenerator("4", 39, 28, 20, 58, 6, 0),
+        new CardGenerator("5", 40, 28, 44, 22, 12, 0),
+        new CardGenerator("6", 25, 26, 28, 25, 7.8, 0),
+        new CardGenerator("7", 38, 30, 22, 56, 38, 0),
+        new CardGenerator("8", 49, 48, 58, 55, 75.5, 0),
+        new CardGenerator("9", 10, 100, 10, 32, 46.8, 0),
+        new CardGenerator("10", 72, 48, 46, 34, 202, 0)
+    ]
 ]
 
-let player1 = shuffle(deck) // Deck of 30 objects passed to the shuffle function, randomises order
+let packChoice= parseInt(prompt("What deck would you like to use? 1= pokemon 2= example"))
+let player1 = shuffle(deck[packChoice-1]) // Deck of 30 objects passed to the shuffle function, randomises order
 let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Half of the deck is added to player 2, the rest is left as player 1
 
 // All buttons are called here
