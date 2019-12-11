@@ -36,19 +36,6 @@ const clear = () => { // Clears the description if users decided to clear the lo
     log.textContent = " "
 }
 
-const changeTheme = () => {
-    theme++
-    if (theme > 2) {
-        player1 = shuffle(deck[0]) 
-    }
-    else {
-        player1 = shuffle(deck[theme]) 
-    }
-    player2 = player1.splice(0, Math.ceil(player1.length / 2)); 
-    document.getElementById("description").innerHTML +=`The theme has been changed<br>Press "See card" to update<br><hr>`
-    toggler = true;
-}
-
 const seeCards = () => { // See card == drawing a card
     if (toggler) { // Checks if player 1 is playing
         document.getElementById("description1").innerHTML = `[Your Card: ${player1[0].name}]<br> 
@@ -58,14 +45,8 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player1[0].attribute4}<br> 
         Weight: ${player1[0].attribute5}<br> 
         Amount Of Cards: ${player1.length}` // Displays all the stats of player 1's card
-        if (theme == 0) {
-            image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
-            image2.src = `images/pokemon/unknown.png` // Since this card is supposed to be hidden, it has a filler image
-        }
-        if (theme == 1) {
-            image1.src = `images/numbers/${player1[0].name}.png`
-            image2.src = `images/numbers/unknown.png`
-        }
+        image1.src = `images/pokemon/${player1[0].name}.png` // Sets image source of the top card by refering to the first card in player 1's deck (array)
+        image2.src = `images/pokemon/unknown.png` // Since this card is supposed to be hidden, it has a filler image
         document.getElementById("description2").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -82,14 +63,8 @@ const seeCards = () => { // See card == drawing a card
         Speed: ${player2[0].attribute4}<br> 
         Weight: ${player2[0].attribute5}<br> 
         Amount Of Cards: ${player2.length}`
-        if (theme == 0) {
-            image1.src = `images/pokemon/unknown.png`
-            image2.src = `images/pokemon/${player2[0].name}.png`
-        }
-        if (theme == 1) {
-            image1.src = `images/numbers/unknown.png`
-            image2.src = `images/numbers/${player2[0].name}.png`
-        }
+        image1.src = `images/pokemon/unknown.png`
+        image2.src = `images/pokemon/${player2[0].name}.png`
         document.getElementById("description1").innerHTML = `[Your Card: ???]<br> 
         Attack: ???<br> 
         Health: ???<br> 
@@ -175,7 +150,7 @@ const rules = () => { // Displays the rules in log box
 }
 
 const controls = () => { // Displays the controls in log box
-    document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Change theme" to change the pack theme. The default pack is "Pokemon"<br>5- Press "Reset" to start a start a new game<br>6- Choose which attribute to use by pressing a number<br> <hr>`
+    document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
 const namingPlayers = () => { // Names the players through prompts, then displays player 1 and player 2's names
@@ -190,7 +165,6 @@ const namingPlayers = () => { // Names the players through prompts, then display
 }
 
 let deck = [ // An array of 30 objects, each card generation is placed inside the array, making 30 objects in an array
-        [
         new CardGenerator("Venusaur", 40, 30, 42, 42, 100, 0),
         new CardGenerator("Charizard", 45, 34, 34, 55, 90.5, 0),
         new CardGenerator("Blastoise", 42, 35, 40, 40, 85.5, 0),
@@ -221,23 +195,9 @@ let deck = [ // An array of 30 objects, each card generation is placed inside th
         new CardGenerator("Pangoro", 64, 44, 34, 38, 136, 0),
         new CardGenerator("Tyrantrum", 64, 36, 55, 46, 270, 0),
         new CardGenerator("Goodra", 52, 45,38, 42, 150.5, 0)
-    ],
-    [
-        new CardGenerator("1", 40, 30, 42, 42, 100, 0),
-        new CardGenerator("2", 45, 34, 34, 55, 90.5, 0),
-        new CardGenerator("3", 42, 35, 40, 40, 85.5, 0),
-        new CardGenerator("4", 39, 28, 20, 58, 6, 0),
-        new CardGenerator("5", 40, 28, 44, 22, 12, 0),
-        new CardGenerator("6", 25, 26, 28, 25, 7.8, 0),
-        new CardGenerator("7", 38, 30, 22, 56, 38, 0),
-        new CardGenerator("8", 49, 48, 58, 55, 75.5, 0),
-        new CardGenerator("9", 10, 100, 10, 32, 46.8, 0),
-        new CardGenerator("10", 72, 48, 46, 34, 202, 0)
-    ]
 ]
 
-let theme = 0
-let player1 = shuffle(deck[theme]) // Deck of 30 objects passed to the shuffle function, randomises order
+let player1 = shuffle(deck) // Deck of 30 objects passed to the shuffle function, randomises order
 let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Half of the deck is added to player 2, the rest is left as player 1
 
 // All buttons are called here
@@ -246,7 +206,6 @@ let namingPlayersButton = document.getElementById("namingPlayers")
 let rulesButton = document.getElementById("rules")
 let controlsButton = document.getElementById("controls")
 let resetButton = document.getElementById("reset")
-let changeThemeButton = document.getElementById("changeTheme")
 let clearButton = document.getElementById("clearButton")
 
 let seeCardsButton1 = document.getElementById("seeCards1")
@@ -268,10 +227,6 @@ controlsButton.addEventListener("click", () => {
 
 resetButton.addEventListener("click", () => {
     reset()
-});
-
-changeThemeButton.addEventListener("click", () => {
-    changeTheme()
 });
 
 clearButton.addEventListener("click", () => {
