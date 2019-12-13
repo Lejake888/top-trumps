@@ -154,11 +154,11 @@ const controls = () => { // Displays the controls in log box
 }
 
 const namingPlayers = () => { // Now uses forms to get the names of players
-    name1 = document.getElementById("playerOneName").value
+    name1 = document.getElementById("playerOneName").value // Gets value inputted into both fields
     name2 = document.getElementById("playerTwoName").value
 
-    if (!name1 || !name2) {
-        alert("Please enter names for both players")
+    if (!name1 || !name2) { // Checks if either of the fields are full
+        document.getElementById("description").innerHTML += "Please enter names for both players<br><hr>"
     }
     else if (name1 && name2) {
         document.getElementById("name1").innerHTML = `Name: ${name1}`
