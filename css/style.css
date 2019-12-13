@@ -66,6 +66,7 @@ input {
     margin-left: 20px;
     margin-right: auto;
     height: 20px;
+    outline: 2px solid black;
 }
 
 .infoBox {
@@ -117,8 +118,8 @@ img {
     bottom: 0;
     padding: 10px;    
     padding-bottom: 20px;
-    -webkit-filter: drop-shadow(12px 12px 5px rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(12px 12px 5px rgba(0, 0, 0, 0.5));
+    -webkit-filter: drop-shadow(15px 15px 5px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(15px 15px 5px rgba(0, 0, 0, 0.5));
 }
 
 /* Move Log */
@@ -147,5 +148,4 @@ u {
     0% {color: black;}
     50% {color: white;}
     100% {color: black;}
-
 }
