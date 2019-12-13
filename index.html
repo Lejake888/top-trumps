@@ -11,7 +11,7 @@
     <div id = start>
         <h1>Welcome to Top Trumps!</h1>
         <p id = "title">First player to get all 30 cards wins <br> Good luck!</p>
-        <button id = "namingPlayers">Set Names >>> </button>
+        <!-- <button id = "namingPlayers">Set Names >>> </button> -->
         <button id = "rules">Rules >>></button>  
         <button id = "controls">Controls >>></button>  
         <button id = "reset">Reset >>></button>  
@@ -20,7 +20,13 @@
     <div class = "infoBox">
             <div class = "box playerOne">
                 <h2>Player 1:</h2>
-                <h2 id = "playerOneName"></h2>
+                <!-- <h2 id = "playerOneName"></h2> -->
+                <form>
+                    <br>
+                    <input id = "playerOneName" type="text" name="firstname" value="">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form> 
                 <button id = "seeCards1">See Card >>></button> 
                 <p id="description1"></p>  
                 <span><img id = "player1image"></span>
@@ -33,7 +39,13 @@
             </div>
             <div class = "box playerTwo">
                 <h2>Player 2:</h2>
-                <h2 id = "playerTwoName"></h2>
+                <!-- <h2 id = "playerTwoName"></h2> -->
+                <form>
+                    <br>
+                    <input id = "playerTwoName" type="text" name="firstname" value="">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form> 
                 <button id = "seeCards2">See Card >>></button> 
                 <p id = "description2"></p> 
                 <span><img id = "player2image"></span>
