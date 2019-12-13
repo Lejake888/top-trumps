@@ -68,12 +68,12 @@ button:disabled {
     flex-direction: row;
 }
 
-.infoBox > .box > h2 {
+.infoBox > .box > h2, h3 {
     margin: 20px;
     font-size: 20px;
 }
 
-.infoBox > .box > h3 {
+.infoBox > .box > h3, #fight {
     color:red;
     font-size: 15px;
     font-family: '8BITWONDERNominal';

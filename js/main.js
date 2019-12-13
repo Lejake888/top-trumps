@@ -163,13 +163,14 @@ const namingPlayers = () => { // Names the players through prompts, then display
     //     document.getElementById("namingPlayers").disabled = true;
     // }
 
-    let playerOneName = document.getElementById("playerOneName").value
-    let playerTwoName = document.getElementById("playerTwoName").value
+    name1 = document.getElementById("playerOneName").value
+    name2 = document.getElementById("playerTwoName").value
     let input1 = document.getElementById("input1")
     let input2 = document.getElementById("input2")
 
-    document.getElementById("name1").innerHTML = playerOneName
-    document.getElementById("name2").innerHTML = playerTwoName
+    document.getElementById("name1").innerHTML = `Name: ${name1}`
+    document.getElementById("name2").innerHTML = `Name: ${name2}`
+    document.getElementById("fight").innerHTML = `${name1} vs ${name2}`
     input1.removeChild(input1)
     input2.removeChild(input2)
 
