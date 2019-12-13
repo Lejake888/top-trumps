@@ -62,6 +62,10 @@ button:disabled {
 
 /* DISPLAY BOX */
 
+input {
+    margin-left: 20px;
+}
+
 .infoBox {
     display:flex;
     min-height: 70vh;
