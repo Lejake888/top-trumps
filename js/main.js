@@ -156,16 +156,18 @@ const controls = () => { // Displays the controls in log box
 const namingPlayers = () => { // Now uses forms to get the names of players
     name1 = document.getElementById("playerOneName").value
     name2 = document.getElementById("playerTwoName").value
-    document.getElementById("name1").innerHTML = `Name: ${name1}`
+
+    if (!name1 || !name2) {
+        alert("Please enter names for both players")
+    }
+    else if (name1 && name2) {
+        document.getElementById("name1").innerHTML = `Name: ${name1}`
     document.getElementById("name2").innerHTML = `Name: ${name2}`
     document.getElementById("fight").innerHTML = `${name1} vs ${name2}`
-
-    let box1 = document.getElementById("inputBox1")
-    let box2 = document.getElementById("inputBox2")
-    let input1 = document.getElementById("input1")
-    let input2 = document.getElementById("input2")
-
-    if (name1 && name2) {
+        let box1 = document.getElementById("inputBox1")
+        let box2 = document.getElementById("inputBox2")
+        let input1 = document.getElementById("input1")
+        let input2 = document.getElementById("input2")    
         box1.removeChild(input1);
         box2.removeChild(input2);
     }

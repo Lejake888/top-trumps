@@ -64,6 +64,8 @@ button:disabled {
 
 input {
     margin-left: 20px;
+    margin-right: auto;
+    height: 30px;
 }
 
 .infoBox {
@@ -77,7 +79,7 @@ input {
     font-size: 20px;
 }
 
-.infoBox > .box > h3, #fight {
+.infoBox > .box > h3, #fight, input {
     color:red;
     font-size: 15px;
     font-family: '8BITWONDERNominal';
