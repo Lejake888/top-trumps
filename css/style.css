@@ -114,8 +114,9 @@ img {
     width: 150px;
     height: 150px;
     position:absolute; 
-    bottom:0;
+    bottom: 0;
     padding: 10px;    
+    padding-bottom: 20px;
     -webkit-filter: drop-shadow(12px 12px 5px rgba(0, 0, 0, 0.5));
     filter: drop-shadow(12px 12px 5px rgba(0, 0, 0, 0.5));
 }

@@ -170,6 +170,7 @@ const namingPlayers = () => { // Now uses forms to get the names of players
         let input2 = document.getElementById("input2")    
         box1.removeChild(input1);
         box2.removeChild(input2);
+        document.getElementById("namingPlayers").disabled = true
     }
 }
 
