@@ -155,13 +155,24 @@ const controls = () => { // Displays the controls in log box
 
 const namingPlayers = () => { // Names the players through prompts, then displays player 1 and player 2's names
     // name1= prompt(`What's your name player 1?`);
-    document.getElementById("playerOneName").innerHTML = "Name: " + name1;
+    // document.getElementById("playerOneName").innerHTML = "Name: " + name1;
     // name2= prompt(`Ok, what's your name player 2?`);
-    document.getElementById("playerTwoName").innerHTML = "Name: " + name2;
-    document.getElementById("fight").innerHTML = name1 + " vs " + name2;
-    if(name1 && name2) { // If both names have been set, these names are final, else, the user can still rename the players
-        document.getElementById("namingPlayers").disabled = true;
-    }
+    // document.getElementById("playerTwoName").innerHTML = "Name: " + name2;
+    // document.getElementById("fight").innerHTML = name1 + " vs " + name2;
+    // if(name1 && name2) { // If both names have been set, these names are final, else, the user can still rename the players
+    //     document.getElementById("namingPlayers").disabled = true;
+    // }
+
+    let playerOneName = document.getElementById("playerOneName").value
+    let playerTwoName = document.getElementById("playerTwoName").value
+    let input1 = document.getElementById("input1")
+    let input2 = document.getElementById("input2")
+
+    input1.parentNode.removeChild(input1);
+    input2.parentNode.removeChild(input2);
+
+    document.getElementById(name1).innerHTML = playerOneName
+    document.getElementById(name2).innerHTML = playerTwoName
 }
 
 let deck = [ // An array of 30 objects, each card generation is placed inside the array, making 30 objects in an array
@@ -202,8 +213,8 @@ let player2 = player1.splice(0, Math.ceil(player1.length / 2)); // Half of the d
 
 // All buttons are called here
 
-let namingPlayer1Button = document.getElementById("playerOneName")  
-let namingPlayer2Button = document.getElementById("playerTwoName")  
+let namingPlayer1Button = document.getElementById("playerOneNameButton")  
+let namingPlayer2Button = document.getElementById("playerTwoNameButton")  
 let rulesButton = document.getElementById("rules")
 let controlsButton = document.getElementById("controls")
 let resetButton = document.getElementById("reset")
