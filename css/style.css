@@ -73,7 +73,7 @@ button:disabled {
     font-size: 20px;
 }
 
-.infoBox > .box > #playerOneName, #playerTwoName, #fight {
+.infoBox > .box > h3 {
     color:red;
     font-size: 15px;
     font-family: '8BITWONDERNominal';

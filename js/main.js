@@ -168,11 +168,11 @@ const namingPlayers = () => { // Names the players through prompts, then display
     let input1 = document.getElementById("input1")
     let input2 = document.getElementById("input2")
 
-    input1.parentNode.removeChild(input1);
-    input2.parentNode.removeChild(input2);
+    document.getElementById("name1").innerHTML = playerOneName
+    document.getElementById("name2").innerHTML = playerTwoName
+    input1.removeChild(input1)
+    input2.removeChild(input2)
 
-    document.getElementById(name1).innerHTML = playerOneName
-    document.getElementById(name2).innerHTML = playerTwoName
 }
 
 let deck = [ // An array of 30 objects, each card generation is placed inside the array, making 30 objects in an array
