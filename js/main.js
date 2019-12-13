@@ -150,7 +150,7 @@ const rules = () => { // Displays the rules in log box
 }
 
 const controls = () => { // Displays the controls in log box
-    document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
+    document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players, fill both fields before pressing this button<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
 const namingPlayers = () => { // Now uses forms to get the names of players
