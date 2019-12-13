@@ -64,7 +64,7 @@ button:disabled {
 
 input {
     margin-left: 20px;
-    margin-right: auto;
+    margin-right: 20px;
     height: 20px;
     outline: 2px solid black;
 }
