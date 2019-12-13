@@ -153,18 +153,22 @@ const controls = () => { // Displays the controls in log box
     document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
-const namingPlayers = () => { // Names the players through prompts, then displays player 1 and player 2's names
+const namingPlayers = () => { // Now uses forms to get the names of players
     name1 = document.getElementById("playerOneName").value
     name2 = document.getElementById("playerTwoName").value
-    let input1 = document.getElementById("input1")
-    let input2 = document.getElementById("input2")
-
     document.getElementById("name1").innerHTML = `Name: ${name1}`
     document.getElementById("name2").innerHTML = `Name: ${name2}`
     document.getElementById("fight").innerHTML = `${name1} vs ${name2}`
-    input1.removeChild(input1)
-    input2.removeChild(input2)
 
+    let box1 = document.getElementById("inputBox1")
+    let box2 = document.getElementById("inputBox2")
+    let input1 = document.getElementById("input1")
+    let input2 = document.getElementById("input2")
+
+    if (name1 && name2) {
+        box1.removeChild(input1);
+        box2.removeChild(input2);
+    }
 }
 
 let deck = [ // An array of 30 objects, each card generation is placed inside the array, making 30 objects in an array
