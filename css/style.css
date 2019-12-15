@@ -75,7 +75,7 @@ input {
     flex-direction: row;
 }
 
-.infoBox > .box > h2, h3 {
+h2, h3 {
     margin: 20px;
     font-size: 20px;
 }

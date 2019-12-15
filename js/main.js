@@ -277,3 +277,7 @@ document.addEventListener("keydown", function(move) {
     else if (move.which == 53) {
         compare(player1[0].attribute5, player2[0].attribute5);
     }})
+
+// Limbo doesn't seem to be working properly anymore
+// Test the pushing of cards
+// Fixed size changing of boxes
