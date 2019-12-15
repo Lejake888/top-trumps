@@ -147,10 +147,7 @@ const controls = () => { // Displays the controls in log box
     document.getElementById("description").innerHTML += `<u>Controls:</u> <br>1- Press “Set Names” to set the names of both players, fill both fields before pressing this button<br>2- Press “Rules” to see the rules<br>3- Press “See card” to view your current card<br>4- Press "Reset" to start a start a new game<br>5- Choose which attribute to use by pressing a number<br> <hr>`
 }
 
-const namingPlayers = () => { // Now uses forms to get the names of players
-    name1 = document.getElementById("playerOneName").value // Gets value inputted into both fields
-    name2 = document.getElementById("playerTwoName").value
-
+const nameCheck = () => {
     if (!name1 || !name2) { // Checks if either of the fields are full
         document.getElementById("description").innerHTML += "Please enter names for both players<br><hr>"
     }
@@ -166,6 +163,12 @@ const namingPlayers = () => { // Now uses forms to get the names of players
         box2.removeChild(input2);
         document.getElementById("namingPlayers").disabled = true
     }
+}
+
+const namingPlayers = () => { // Now uses forms to get the names of players
+    name1 = document.getElementById("playerOneName").value // Gets value inputted into both fields
+    name2 = document.getElementById("playerTwoName").value
+    nameCheck(name1, name2) 
 }
 
 let deck = [ // An array of 30 objects, each card generation is placed inside the array, making 30 objects in an array
