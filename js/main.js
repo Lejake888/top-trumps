@@ -278,6 +278,25 @@ document.addEventListener("keydown", function(move) {
         compare(player1[0].attribute5, player2[0].attribute5);
     }})
 
+window.onload = () => {
+    // if (title.style.color == "white") { 
+    //     setTimeout(colorToggle = () => {
+    //         title.style.color = "black"
+    //     }, 500)
+    // }
+    // else if (title.style.color == "black") { 
+    //     setTimeout(colorToggle = () => {
+    //         title.style.color = "white"
+    //     }, 500)
+    // }
+    setTimeout(colorToggle = () => {
+        title.style.color = "white"
+    },1000)
+    setTimeout(colorToggle = () => {
+        title.style.color = "black"
+    },2000)
+}
+
 // Limbo doesn't seem to be working properly anymore
 // Test the pushing of cards
 // Fixed size changing of boxes

@@ -27,6 +27,10 @@ body {
     line-height: 2;
 }
 
+#title {
+    color: black;
+}
+
 /* #title {
     animation-name: flash;
     animation-duration: 2s;
