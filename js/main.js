@@ -92,6 +92,11 @@ const compare = (pla1Card, pla2Card) => { // Compares the value of the stat chos
         player2.shift(); // Losing card removed from player 2's deck
         let top = player1.shift(); // Shift the top card on player 1's deck
         player1.push(top); // Since we don't want to lose this card, the "top" card is added to the bottom of the deck
+        if (limbo.length > 0) { // Checks if there are any cards in limbo
+            limbo.forEach(card => { // If there are cards in limbo, they are added to the winner's deck
+            player1.push(card);
+        })}
+        limbo = []; // Reset limbo so there are no duplicated cards
         document.getElementById("description").innerHTML +=`${player1[player1.length-1].name} wins: ${player1[player1.length-1].wins}<br>` // Displays stats including player 1's cards, player 2's cards and middle cards
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
         document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
@@ -107,6 +112,11 @@ const compare = (pla1Card, pla2Card) => { // Compares the value of the stat chos
         player1.shift();
         let top = player2.shift();
         player2.push(top);
+        if (limbo.length > 0) { // Checks if there are any cards in limbo
+            limbo.forEach(card => { // If there are cards in limbo, they are added to the winner's deck
+            player2.push(card);
+        })}
+        limbo = [];
         document.getElementById("description").innerHTML +=`${player2[player2.length-1].name} wins: ${player2[player2.length-1].wins}<br>`
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
         document.getElementById("description").innerHTML +=`${name2}  Cards left: ${player2.length}<br>`
@@ -124,17 +134,6 @@ const compare = (pla1Card, pla2Card) => { // Compares the value of the stat chos
         document.getElementById("description").innerHTML +=`${name1} Cards left: ${player1.length}<br>`
         document.getElementById("description").innerHTML +=`${name2} Cards left: ${player2.length}<br>`
         document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
-    }
-    if (limbo.length > 0) { // Checks if there are any cards in limbo
-        if (toggler) {
-            limbo.forEach(card => { // If there are cards in limbo, they are added to the winner's deck
-            player1.push(card);
-        })}
-        else if (!toggler) {
-            limbo.forEach(card => {
-            player2.push(card)
-        })}
-        limbo = []; // Reset limbo so there are no duplicated cards
     }
     winCheck() // Every round that is played, the program checks if there is a winner
 }
