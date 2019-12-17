@@ -126,9 +126,14 @@ const compare = (pla1Card, pla2Card) => { // Compares the value of the stat chos
         document.getElementById("description").innerHTML +=`Middle Cards left: ${limbo.length}<br><hr>`
     }
     if (limbo.length > 0) { // Checks if there are any cards in limbo
-        limbo.forEach(card => { // If there are cards in limbo, they are added to the winner's deck
+        if (toggler) {
+            limbo.forEach(card => { // If there are cards in limbo, they are added to the winner's deck
             player1.push(card);
-        });
+        })}
+        else if (!toggler) {
+            limbo.forEach(card => {
+            player2.push(card)
+        })}
         limbo = []; // Reset limbo so there are no duplicated cards
     }
     winCheck() // Every round that is played, the program checks if there is a winner
